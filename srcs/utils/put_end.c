@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:08:52 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/15 15:04:02 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/18 13:55:08 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	put_row_end(t_row *row, t_element *element)
 		row->first = element;
 		return ;
 	}
+	element->row = row;
 	current = row->first;
 	while (current)
 	{
