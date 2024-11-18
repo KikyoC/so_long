@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/15 15:54:51 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/18 15:17:34 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,19 +20,30 @@ CFLAGS = -Wall -Werror -Wextra -g
 SRCS = so_long.c \
 	srcs/map_manager/map-create.c \
 	srcs/map_manager/map-delete.c \
-	srcs/map_manager/map-check.c \
+	srcs/map_manager/checker/map-check.c \
+	srcs/map_manager/checker/element-checker.c \
+	srcs/map_manager/checker/solvable.c \
+	srcs/map_manager/checker/move-check.c \
 	srcs/utils/put_end.c \
 	srcs/utils/last.c \
 	srcs/utils/len.c \
+	srcs/utils/movements.c \
+	srcs/utils/refresh.c \
 
 GREEN = \e[0;32m
 WHITE = \e[0;37m
 AQUA = \e[0;36m
 YELLOW = \e[0;33m
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(addprefix objs/, $(SRCS:.c=.o))
 
-all: $(NAME)
+OBJS_DIR = objs/ \
+	objs/srcs/ \
+	objs/srcs/map_manager/ \
+	objs/srcs/map_manager/checker/ \
+	objs/srcs/utils/
+
+all: $(OBJS_DIR) $(NAME)
 
 $(PRINTF):
 	@echo "$(YELLOW)Compiling printf... $(WHITE)[$(GREEN)1$(WHITE)/$(AQUA)4$(WHITE)]" 
@@ -54,8 +65,11 @@ $(NAME): $(PRINTF) $(LIBFT) $(GNL) $(OBJS)
 	@cc $(CFLAGS) -o $@ $(OBJS) $(PRINTF) $(LIBFT) $(GNL)
 	@echo "$(GREEN)Done.${WHITE}"
 
-%.o: %.c
+objs/%.o: %.c
 	@cc $(CFLAGS) -c $< -o $@
+
+$(OBJS_DIR):
+	@mkdir -p $@
 
 clean:
 	@echo "$(YELLOW)Clearing printf... $(WHITE)[$(GREEN)1$(WHITE)/$(AQUA)4$(WHITE)]"
@@ -68,7 +82,7 @@ clean:
 	@make --no-print-directory -C gnl clean
 	@rm -f $(GNL)
 	@echo "$(YELLOW)Clearing objects... $(WHITE)[$(GREEN)4$(WHITE)/$(AQUA)4$(WHITE)]"
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJS_DIR)
 	@echo "$(GREEN)Done."
 
 fclean: clean
