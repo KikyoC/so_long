@@ -1,0 +1,5 @@
+push_swap
+libft.a
+libftprintf.a
+**/*.o
+checker_linux
