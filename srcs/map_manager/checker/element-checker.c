@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:18:55 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/18 11:45:20 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:40:23 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ int	check_border(t_map *map)
 
 	row = map->first;
 	if (!(full(map->first) && full(last_in_map(map))))
-	{
-		ft_printf("full\n");
 		return (0);
-	}
 	row = row->next;
 	while (row->next)
 	{
