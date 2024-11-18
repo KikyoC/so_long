@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map-check.c                                        :+:      :+:    :+:   */
+/*   element-checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 15:23:17 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/15 16:18:46 by togauthi         ###   ########.fr       */
+/*   Created: 2024/11/18 11:18:55 by togauthi          #+#    #+#             */
+/*   Updated: 2024/11/18 11:45:20 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../../../so_long.h"
 
 int	full(t_row *row)
 {
@@ -62,6 +62,19 @@ int	is_rect(t_map *map)
 	return (1);
 }
 
+int	check_element(int *start, int *end, int *collectibles, t_element *element)
+{
+	if (element->value == 'P')
+		*start += 1;
+	else if (element->value == 'E')
+		*end += 1;
+	else if (element->value == 'C')
+		*collectibles += 1;
+	else if (element->value != '1' && element->value != '0')
+		return (0);
+	return (1);
+}
+
 int	check_elements(t_map *map)
 {
 	t_row		*row;
@@ -79,22 +92,11 @@ int	check_elements(t_map *map)
 		element = row->first;
 		while (element)
 		{
-			if (element->value == 'P')
-				start ++;
-			else if (element->value == 'E')
-				end ++;
-			else if (element->value == 'C')
-				collectibles ++;
-			else if (element->value != '0' && element->value != '1')
+			if (!check_element(&start, &end, &collectibles, element))
 				return (0);
 			element = element->next;
 		}
 		row = row->next;
 	}
 	return (start == 1 && end == 1 && collectibles >= 1);
-}
-
-int	check(t_map *map)
-{
-	return (is_rect(map) && check_border(map) && check_elements(map));
 }
