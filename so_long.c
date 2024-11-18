@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/18 10:37:11 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:24:22 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ void	print_map(t_map *map)
 
 int	main(int argc, char **argv)
 {
-	int		fd;
-	t_map	*map;
+	int			fd;
+	t_map		*map;
+	t_player	*player;
 
 	if (argc < 2)
 	{
@@ -53,9 +54,14 @@ int	main(int argc, char **argv)
 		ft_printf("File not found\n");
 		return (1);
 	}
-	map = create_map(fd);
+	player = ft_calloc(1, sizeof(t_player));
+	if (!player)
+		return (1);
+	map = create_map(fd, player);
 	print_map(map);
-	ft_printf("%d\n", check(map));
+	ft_printf("%d\n", check(map, player));
+	print_map(map);
 	free_map(map);
+	free(player);
 	close(fd);
 }
