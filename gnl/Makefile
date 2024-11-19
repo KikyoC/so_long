@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 13:32:47 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/15 14:39:00 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/19 11:44:52 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Werror -Wextra -g
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) -fPIE $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@ar -rc $(NAME) $^

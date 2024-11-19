@@ -6,14 +6,21 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:23:17 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/18 15:22:05 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:37:16 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	check(t_map *map, t_player *player)
+char	*check(t_map *map, t_player *player)
 {
-	return (is_rect(map) && check_border(map) && check_elements(map)
-		&& is_solvable(map, player));
+	if (!is_rect(map))
+		return ("Map is not rectangular");
+	if (!check_border(map))
+		return ("Borders of the map aren't 1");
+	if (!check_elements(map))
+		return ("Elements aren't good. Verify that you have 1 Spawn Position, 1 Exit Position and at least 1 Collectible Position");
+	if (!is_solvable(map, player))
+		return ("There is no way to solve the map. Check your map");
+	return (NULL);
 }

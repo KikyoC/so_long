@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:48:07 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/18 15:21:20 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:18:19 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ t_map	*create_map(int fd, t_player *player)
 	char		*s;
 	t_map		*res;
 	t_row		*row;
-	int			i;
 
 	s = get_next_line(fd);
 	res = ft_calloc(1, sizeof(t_map));
@@ -63,7 +62,6 @@ t_map	*create_map(int fd, t_player *player)
 		return (NULL);
 	while (s)
 	{
-		i = 0;
 		row = create_row(s, player);
 		if (!row)
 		{

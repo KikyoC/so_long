@@ -6,11 +6,13 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/18 15:24:22 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:17:23 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "mlx_linux/mlx.h"
+#include "mlx_linux/mlx_int.h"
 
 void	print_row(t_row *row)
 {
@@ -40,8 +42,11 @@ void	print_map(t_map *map)
 int	main(int argc, char **argv)
 {
 	int			fd;
+	char		*error;
 	t_map		*map;
 	t_player	*player;
+	void		*mlx;
+	void		*mlx_win;
 
 	if (argc < 2)
 	{
@@ -59,8 +64,16 @@ int	main(int argc, char **argv)
 		return (1);
 	map = create_map(fd, player);
 	print_map(map);
-	ft_printf("%d\n", check(map, player));
-	print_map(map);
+	error = check(map, player);
+	if (error)
+		ft_printf("Error\n%s\n", error);
+	else
+		ft_printf("Map loaded\n");
+
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world");
+	(void)mlx_win;
+	mlx_loop(mlx);
 	free_map(map);
 	free(player);
 	close(fd);

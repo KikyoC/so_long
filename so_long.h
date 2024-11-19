@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/18 15:22:17 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:39:19 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_map		*create_map(int fd, t_player *player);
 char		*get_next_line(int fd);
 t_element	*last_in_row(t_row *row);
 t_row		*last_in_map(t_map *map);
-int			check(t_map *map, t_player *player);
+char		*check(t_map *map, t_player *player);
 int			row_len(t_row *row);
 int			left(t_player *player);
 int			right(t_player *player);
