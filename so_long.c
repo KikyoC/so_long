@@ -6,13 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/19 11:17:23 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/21 16:50:00 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "mlx_linux/mlx.h"
-#include "mlx_linux/mlx_int.h"
 
 void	print_row(t_row *row)
 {
@@ -39,14 +37,34 @@ void	print_map(t_map *map)
 	}
 }
 
+int	key_press(int keycode, t_game *game)
+{
+	if (keycode == XK_Escape)
+		mlx_loop_end(game->mlx);
+	else if (keycode == XK_d)
+		right(game->player);
+	else if (keycode == XK_w)
+		up(game->player);
+	else if (keycode == XK_a)
+		left(game->player);
+	else if(keycode == XK_s)
+		down(game->player);
+	aff_img_everywhere(game);
+	return (1);
+}
+
+int	game_loop(t_game *game)
+{
+	if (game->player->pos->exit)
+		mlx_loop_end(game->mlx);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	int			fd;
 	char		*error;
-	t_map		*map;
-	t_player	*player;
-	void		*mlx;
-	void		*mlx_win;
+	t_game		*game;
 
 	if (argc < 2)
 	{
@@ -59,22 +77,10 @@ int	main(int argc, char **argv)
 		ft_printf("File not found\n");
 		return (1);
 	}
-	player = ft_calloc(1, sizeof(t_player));
-	if (!player)
-		return (1);
-	map = create_map(fd, player);
-	print_map(map);
-	error = check(map, player);
+	game = create_game(fd, &error);
+	mlx_destroy_window(game->mlx, game->window);
 	if (error)
 		ft_printf("Error\n%s\n", error);
 	else
-		ft_printf("Map loaded\n");
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world");
-	(void)mlx_win;
-	mlx_loop(mlx);
-	free_map(map);
-	free(player);
-	close(fd);
+		delete_game(game);
 }

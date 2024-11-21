@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/19 13:22:36 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/19 15:24:00 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIBFT = libft.a
 GNL = gnl.a
 MLX = mlx_linux/libmlx.a
 
-CFLAGS = -Wall -Werror -Wextra -Imlx_linux -O3 -g
+CFLAGS = -Wall -Werror -Wextra -g
 SRCS = so_long.c \
 	srcs/map_manager/map-create.c \
 	srcs/map_manager/map-delete.c \
@@ -30,6 +30,8 @@ SRCS = so_long.c \
 	srcs/utils/len.c \
 	srcs/utils/movements.c \
 	srcs/utils/refresh.c \
+	srcs/game/create-game.c \
+	srcs/game/delete-game.c \
 
 GREEN = \e[0;32m
 WHITE = \e[0;37m
@@ -42,7 +44,8 @@ OBJS_DIR = objs/ \
 	objs/srcs/ \
 	objs/srcs/map_manager/ \
 	objs/srcs/map_manager/checker/ \
-	objs/srcs/utils/
+	objs/srcs/utils/ \
+	objs/srcs/game
 
 all: $(OBJS_DIR) $(NAME)
 

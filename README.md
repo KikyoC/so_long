@@ -1,0 +1,1 @@
+Check si les collectibles sont accessibles

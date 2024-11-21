@@ -1,4 +1,6 @@
 *.o
 libft.a
 libftprintf.a
+libmlx.a
 so_long
+textures/*.xcf
