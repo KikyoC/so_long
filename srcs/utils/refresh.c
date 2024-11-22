@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:04:13 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/18 15:23:55 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:30:45 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void	refresh_collectibles(t_map *map)
 		}
 		row = row->next;
 	}
+	map->game->player->collectibles = 0;
 }

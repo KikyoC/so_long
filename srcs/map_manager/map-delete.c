@@ -6,13 +6,13 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:56:12 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/15 16:17:21 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:05:21 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-void	free_row(t_row	*row)
+void	*free_row(t_row	*row)
 {
 	t_element	*current;
 	t_element	*next;
@@ -25,9 +25,10 @@ void	free_row(t_row	*row)
 		current = next;
 	}
 	free(row);
+	return (NULL);
 }
 
-void	free_map(t_map *map)
+void	*free_map(t_map *map)
 {
 	t_row	*current;
 	t_row	*next;
@@ -40,4 +41,5 @@ void	free_map(t_map *map)
 		current = next;
 	}
 	free(map);
+	return (NULL);
 }

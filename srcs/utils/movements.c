@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:27:44 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/21 16:42:53 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:22:13 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	left(t_player *player)
 {
 	if (player->pos->prev->value == '1')
 		return (0);
+	player->collectibles += player->pos->next->value == 'C';
 	player->pos->value = '0';
 	player->pos = player->pos->prev;
 	player->pos->value = 'P';
@@ -36,6 +37,7 @@ int	right(t_player *player)
 {
 	if (player->pos->next->value == '1')
 		return (0);
+	player->collectibles += player->pos->next->value == 'C';
 	player->pos->value = '0';
 	player->pos = player->pos->next;
 	player->pos->value = 'P';
@@ -69,6 +71,7 @@ int	up(t_player *player)
 	}
 	if (current->value == '1')
 		return (0);
+	player->collectibles += current->value == 'C';
 	current->value = 'P';
 	player->pos->value = '0';
 	player->pos = current;
@@ -102,6 +105,7 @@ int	down(t_player *player)
 	}
 	if (current->value == '1')
 		return (0);
+	player->collectibles += current->value == 'C';
 	current->value = 'P';
 	player->pos->value = '0';
 	player->pos = current;

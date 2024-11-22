@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 11:46:47 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:06:16 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ typedef struct s_game
 	void		*wall;
 }	t_game;
 
-void		free_map(t_map *map);
-void		free_row(t_row *row);
+void		*free_map(t_map *map);
+void		*free_row(t_row *row);
 void		put_map_end(t_map *map, t_row *element);
 void		put_row_end(t_row *row, t_element *element);
 t_map		*create_map(int fd, t_game *game);

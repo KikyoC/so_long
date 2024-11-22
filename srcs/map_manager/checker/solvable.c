@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:29:23 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 11:53:26 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:01:18 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,7 @@ int	is_visited(t_map *map, t_element **exit_pos)
 			if (element->exit)
 				*exit_pos = element;
 			if ((element->collectible || element->exit) && !element->visited)
-			{
-				if (element->collectible)
-					ft_printf("Collectible\n");
-				else
-					ft_printf("Exit\n");
 				return (0);
-			}
 			element = element->next;
 		}
 		row = row->next;

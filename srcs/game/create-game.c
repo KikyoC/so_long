@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 11:55:46 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:18:42 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	put_image(char c, t_game *game, t_element *element)
 			element->x, element->y);
 }
 
-void	load_sprites(t_game *game)
+int	load_sprites(t_game *game)
 {
 	int		width;
 	int		height;
@@ -46,6 +46,7 @@ void	load_sprites(t_game *game)
 			&width, &height);
 	game->playerp = mlx_xpm_file_to_image(game->mlx, "textures/player.xpm",
 			&width, &height);
+	return (game->playerp && game->collectible && game->exit && game->grass && game->wall);
 }
 
 int	setup_mlx(t_game *game)
@@ -98,7 +99,8 @@ void	open_window(t_game *game)
 		y += 64;
 		row = row->next;
 	}
-	load_sprites(game);
+	if (!load_sprites(game))
+		return ;
 	game->window = mlx_new_window(game->mlx, x, y, "So_long");
 }
 
@@ -111,21 +113,22 @@ t_game	*create_game(int fd, char **error)
 		return (NULL);
 	game->player = ft_calloc(1, sizeof(t_player));
 	if (!game->player)
-		return (NULL);
+		return (game);
+	game->player->collectibles = 0;
 	game->map = create_map(fd, game);
 	close(fd);
 	if (!game->map)
-		return (NULL);
+		return (game);
 	game->map->game = game;
 	*error = check(game->map, game->player);
 	if (*error)
-		return (NULL);
+		return (game);
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		return (NULL);
+		return (game);
 	open_window(game);
 	if (!game->window)
-		return (NULL);
+		return (game);
 	setup_mlx(game);
 	return (game);
 }

@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 11:28:44 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:32:03 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	key_press(int keycode, t_game *game)
 
 int	game_loop(t_game *game)
 {
-	if (game->player->pos->exit)
+	if (game->player->pos->exit && game->map->collectibles == game->player->collectibles)
 		mlx_loop_end(game->mlx);
 	return (1);
 }
@@ -80,12 +80,14 @@ int	main(int argc, char **argv)
 		ft_printf("File not found\n");
 		return (1);
 	}
+	error = NULL;
 	game = create_game(fd, &error);
 	if (error)
 		ft_printf("Error\n%s\n", error);
-	else
+	else if (game)
 	{
-		mlx_destroy_window(game->mlx, game->window);
+		if (game->mlx && game->window)
+			mlx_destroy_window(game->mlx, game->window);
 		delete_game(game);
 	}
 }
