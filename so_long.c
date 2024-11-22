@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 12:32:03 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:39:40 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	key_press(int keycode, t_game *game)
 
 int	game_loop(t_game *game)
 {
+	ft_printf("In game game collectibes: %d\nPlayer collected %d\n", game->map->collectibles, game->player->collectibles);
 	if (game->player->pos->exit && game->map->collectibles == game->player->collectibles)
 		mlx_loop_end(game->mlx);
 	return (1);
