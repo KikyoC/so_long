@@ -6,16 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:27:44 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 12:41:07 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:45:19 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
-
-/*left
-	Try to turn on the left.
-	If it fails it will return 0 else 1
-*/
 
 int	left(t_player *player)
 {
@@ -28,11 +23,6 @@ int	left(t_player *player)
 	return (1);
 }
 
-/*right
-	Try to turn on the right.
-	If it fails it will return 0 else 1
-*/
-
 int	right(t_player *player)
 {
 	if (player->pos->next->value == '1')
@@ -43,11 +33,6 @@ int	right(t_player *player)
 	player->pos->value = 'P';
 	return (1);
 }
-
-/*up
-	Try to go up.
-	If it fails it will return 0 else 1
-*/
 
 int	up(t_player *player)
 {
@@ -77,11 +62,6 @@ int	up(t_player *player)
 	player->pos = current;
 	return (1);
 }
-
-/*down
-	Try to go down.
-	If it fails it will return 0 else 1
-*/
 
 int	down(t_player *player)
 {
