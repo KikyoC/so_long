@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/21 16:34:40 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:51:38 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct	s_element
 	int					visited;
 	int					exit;
 	int					collectible;
+	int					x;
+	int					y;
 
 }	t_element;
 
@@ -56,6 +58,12 @@ typedef struct	s_game
 	void		*window;
 	t_player	*player;
 	t_map		*map;
+	void		*coin;
+	void		*collectible;
+	void		*exit;
+	void		*grass;
+	void		*playerp;
+	void		*wall;
 }	t_game;
 
 void		free_map(t_map *map);
@@ -84,5 +92,5 @@ int			game_loop(t_game *game);
 int			key_press(int keycode, t_game *game);
 int			delete_game(t_game *game);
 int			aff_img_everywhere(t_game *game);
-
+void		move_player(t_element *old_pos, t_game *game);
 #endif

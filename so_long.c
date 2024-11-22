@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/21 16:50:00 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:39:46 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ void	print_map(t_map *map)
 
 int	key_press(int keycode, t_game *game)
 {
+	t_element *old_pos;
+
+	old_pos = game->player->pos;
 	if (keycode == XK_Escape)
 		mlx_loop_end(game->mlx);
 	else if (keycode == XK_d)
@@ -49,7 +52,7 @@ int	key_press(int keycode, t_game *game)
 		left(game->player);
 	else if(keycode == XK_s)
 		down(game->player);
-	aff_img_everywhere(game);
+	move_player(old_pos, game);
 	return (1);
 }
 
