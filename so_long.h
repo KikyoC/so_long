@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 12:59:46 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 14:15:13 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,13 @@ typedef struct s_game
 	void		*grass;
 	void		*playerp;
 	void		*wall;
+	int			fps;
 }	t_game;
+
+typedef struct s_animation
+{
+	void		**frames;
+}	t_animation;
 
 void		*free_map(t_map *map);
 void		*free_row(t_row *row);
@@ -99,4 +105,5 @@ void		move_player(t_element *old_pos, t_game *game);
 void		print_map(t_map *map);
 void		move_player(t_element *old_pos, t_game *game);
 void		init_player(t_player *player);
+void		*free_animation(t_animation *animation)
 #endif

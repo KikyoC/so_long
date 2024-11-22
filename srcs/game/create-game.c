@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 13:00:09 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:52:29 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	load_sprites(t_game *game)
 	int		width;
 	int		height;
 
+	game->fps = 0;
 	game->collectible = mlx_xpm_file_to_image(game->mlx,
 			"textures/collectible.xpm", &width, &height);
 	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm",
