@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 12:18:42 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:00:09 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ t_game	*create_game(int fd, char **error)
 	game->player = ft_calloc(1, sizeof(t_player));
 	if (!game->player)
 		return (game);
-	game->player->collectibles = 0;
+	init_player(game->player);
 	game->map = create_map(fd, game);
 	close(fd);
 	if (!game->map)

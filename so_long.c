@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 12:39:40 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:25:06 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,29 @@ void	print_map(t_map *map)
 int	key_press(int keycode, t_game *game)
 {
 	t_element	*old_pos;
+	int			moved;
 
+	moved = 0;
 	old_pos = game->player->pos;
 	if (keycode == XK_Escape)
-		mlx_loop_end(game->mlx);
+		moved += mlx_loop_end(game->mlx);
 	else if (keycode == XK_d)
-		right(game->player);
+		moved += right(game->player);
 	else if (keycode == XK_w)
-		up(game->player);
+		moved += up(game->player);
 	else if (keycode == XK_a)
-		left(game->player);
+		moved += left(game->player);
 	else if (keycode == XK_s)
-		down(game->player);
+		moved += down(game->player);
 	move_player(old_pos, game);
+	game->player->movements += moved;
+	if (moved)
+		ft_printf("%d\n", game->player->movements);
 	return (1);
 }
 
 int	game_loop(t_game *game)
 {
-	ft_printf("In game game collectibes: %d\nPlayer collected %d\n", game->map->collectibles, game->player->collectibles);
 	if (game->player->pos->exit && game->map->collectibles == game->player->collectibles)
 		mlx_loop_end(game->mlx);
 	return (1);
