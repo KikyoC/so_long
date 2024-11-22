@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:11:57 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/18 15:22:57 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:41:17 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ int	check_up(t_player *player)
 		else
 		{
 			player->pos->visited = 1;
-			if (solve(player))
-				return (1);
-			else
-				down(player);
+			solve(player);
+			down(player);
 		}
 	}
 	return (0);
@@ -39,10 +37,8 @@ int	check_down(t_player *player)
 		else
 		{
 			player->pos->visited = 1;
-			if (solve(player))
-				return (1);
-			else
-				up(player);
+			solve(player);
+			up(player);
 		}
 	}
 	return (0);
@@ -57,10 +53,8 @@ int	check_left(t_player *player)
 		else
 		{
 			player->pos->visited = 1;
-			if (solve(player))
-				return (1);
-			else
-				right(player);
+			solve(player);
+			right(player);
 		}
 	}
 	return (0);
@@ -75,10 +69,8 @@ int	check_right(t_player *player)
 		else
 		{
 			player->pos->visited = 1;
-			if (solve(player))
-				return (1);
-			else
-				left(player);
+			solve(player);
+			left(player);
 		}
 	}
 	return (0);

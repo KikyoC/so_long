@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/21 17:39:46 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:28:44 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_map(t_map *map)
 
 int	key_press(int keycode, t_game *game)
 {
-	t_element *old_pos;
+	t_element	*old_pos;
 
 	old_pos = game->player->pos;
 	if (keycode == XK_Escape)
@@ -50,7 +50,7 @@ int	key_press(int keycode, t_game *game)
 		up(game->player);
 	else if (keycode == XK_a)
 		left(game->player);
-	else if(keycode == XK_s)
+	else if (keycode == XK_s)
 		down(game->player);
 	move_player(old_pos, game);
 	return (1);
@@ -81,9 +81,11 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	game = create_game(fd, &error);
-	mlx_destroy_window(game->mlx, game->window);
 	if (error)
 		ft_printf("Error\n%s\n", error);
 	else
+	{
+		mlx_destroy_window(game->mlx, game->window);
 		delete_game(game);
+	}
 }

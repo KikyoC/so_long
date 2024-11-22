@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:17:24 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/21 17:58:20 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 10:47:20 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	delete_game(t_game *game)
 {
-	
 	if (!game)
 		return (1);
 	if (game->player)

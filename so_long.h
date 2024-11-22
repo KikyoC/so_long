@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/21 17:51:38 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:46:47 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "mlx_linux/mlx_int.h"
 # include "X11/X.h"
 
-typedef struct	s_element
+typedef struct s_element
 {
 	struct s_element	*next;
 	struct s_element	*prev;
@@ -33,7 +33,7 @@ typedef struct	s_element
 
 }	t_element;
 
-typedef struct	s_row
+typedef struct s_row
 {
 	struct s_row		*next;
 	struct s_row		*prev;
@@ -42,17 +42,20 @@ typedef struct	s_row
 
 }	t_row;
 
-typedef struct	s_map
+typedef struct s_map
 {
+	int					collectibles;
+	struct s_game		*game;
 	struct s_row		*first;
 }	t_map;
 
-typedef struct	s_player
+typedef struct s_player
 {
+	int					collectibles;
 	struct s_element	*pos;	
 }	t_player;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	void		*mlx;
 	void		*window;
@@ -70,7 +73,7 @@ void		free_map(t_map *map);
 void		free_row(t_row *row);
 void		put_map_end(t_map *map, t_row *element);
 void		put_row_end(t_row *row, t_element *element);
-t_map		*create_map(int fd, t_player *player);
+t_map		*create_map(int fd, t_game *game);
 char		*get_next_line(int fd);
 t_element	*last_in_row(t_row *row);
 t_row		*last_in_map(t_map *map);
@@ -86,11 +89,12 @@ int			check_up(t_player *player);
 int			check_down(t_player *player);
 int			check_left(t_player *player);
 int			check_right(t_player *player);
-int			solve(t_player *player);
+void		solve(t_player *player);
 t_game		*create_game(int fd, char **error);
 int			game_loop(t_game *game);
 int			key_press(int keycode, t_game *game);
 int			delete_game(t_game *game);
-int			aff_img_everywhere(t_game *game);
+void		move_player(t_element *old_pos, t_game *game);
+void		print_map(t_map *map);
 void		move_player(t_element *old_pos, t_game *game);
 #endif

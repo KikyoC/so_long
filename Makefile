@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/19 15:24:00 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/22 10:46:26 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,9 @@ SRCS = so_long.c \
 	srcs/utils/len.c \
 	srcs/utils/movements.c \
 	srcs/utils/refresh.c \
-	srcs/game/create-game.c \
 	srcs/game/delete-game.c \
+	srcs/game/create-game.c \
+	srcs/player/move.c
 
 GREEN = \e[0;32m
 WHITE = \e[0;37m
@@ -45,7 +46,8 @@ OBJS_DIR = objs/ \
 	objs/srcs/map_manager/ \
 	objs/srcs/map_manager/checker/ \
 	objs/srcs/utils/ \
-	objs/srcs/game
+	objs/srcs/game \
+	objs/srcs/player
 
 all: $(OBJS_DIR) $(NAME)
 
