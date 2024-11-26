@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/26 14:20:43 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/26 14:46:40 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ GNL = gnl.a
 MLX = mlx_linux/libmlx.a
 MLX_DIR = mlx_linux/
 
-CFLAGS = -Wall -Werror -Wextra -Imlx_linux -g
+CFLAGS = -Wall -Werror -Wextra -g
 SRCS = so_long.c \
 	srcs/map_manager/map-create.c \
 	srcs/map_manager/map-delete.c \
@@ -111,10 +111,12 @@ clean:
 	@make --no-print-directory -C gnl clean
 	@rm -f $(GNL)
 	@echo "$(YELLOW)Clearing mlx... $(WHITE)[$(GREEN)4$(WHITE)/$(AQUA)5$(WHITE)]"
-	@make --no-print-directory -C mlx_linux clean
+	@if [ -f "mlx_linux/Makefile" ]; then make --no-print-directory -C mlx_linux clean; fi;
 	@echo "$(YELLOW)Clearing objects... $(WHITE)[$(GREEN)5$(WHITE)/$(AQUA)5$(WHITE)]"
 	@rm -rf $(OBJS_DIR)
 	@echo "$(GREEN)Done."
+
+install: $(MLX_DIR) $(MLX)
 
 fclean: clean
 	@echo "$(YELLOW)Clearing result...$(WHITE)[$(GREEN)1$(WHITE)/$(AQUA)1$(WHITE)]"
@@ -124,4 +126,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re install
