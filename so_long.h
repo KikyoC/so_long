@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 14:15:13 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:08:00 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,18 @@ typedef struct s_player
 
 typedef struct s_game
 {
-	void		*mlx;
-	void		*window;
-	t_player	*player;
-	t_map		*map;
-	void		*coin;
-	void		*collectible;
-	void		*exit;
-	void		*grass;
-	void		*playerp;
-	void		*wall;
-	int			fps;
+	void					*mlx;
+	void					*window;
+	t_player				*player;
+	t_map					*map;
+	void					*coin;
+	void					*collectible;
+	struct s_element		*exit;
+	struct s_animation		*exitp;
+	void					*grass;
+	struct s_animation		*playerp;
+	void					*wall;
+	int						fps;
 }	t_game;
 
 typedef struct s_animation
@@ -105,5 +106,9 @@ void		move_player(t_element *old_pos, t_game *game);
 void		print_map(t_map *map);
 void		move_player(t_element *old_pos, t_game *game);
 void		init_player(t_player *player);
-void		*free_animation(t_animation *animation)
+void		*free_animation(t_game *game, t_animation *animation);
+t_animation	*create_player_animation(t_game *game);
+t_animation	*create_exit_animation(t_game *game);
+void		animate_player(t_game *game);
+void		animate_portal(t_game *game);
 #endif

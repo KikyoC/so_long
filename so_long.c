@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 13:25:06 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 10:40:16 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ int	game_loop(t_game *game)
 {
 	if (game->player->pos->exit && game->map->collectibles == game->player->collectibles)
 		mlx_loop_end(game->mlx);
+	if (game->fps >= 180)
+		game->fps = -1;
+	game->fps++;
+	animate_player(game);
+	if (game->player->pos != game->exit)
+		animate_portal(game);
 	return (1);
 }
 

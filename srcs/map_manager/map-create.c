@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:48:07 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 12:07:24 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:55:50 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	assign_element(t_element *element, t_row *row, char c, int *pos)
 		row->map->collectibles ++;
 	if (c == 'P')
 		element->row->map->game->player->pos = element;
+	if (c == 'E')
+		element->row->map->game->exit = element;
 }
 
 t_row	*create_row(char *s, int *pos, t_map *map)

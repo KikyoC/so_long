@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/22 13:52:29 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:12:10 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ void	put_image(char c, t_game *game, t_element *element)
 		mlx_put_image_to_window(game->mlx, game->window, game->wall,
 			element->x, element->y);
 	else if (c == 'P')
-		mlx_put_image_to_window(game->mlx, game->window, game->playerp,
-			element->x, element->y);
+		animate_player(game);
 	else if (c == 'E')
-		mlx_put_image_to_window(game->mlx, game->window, game->exit,
-			element->x, element->y);
+		animate_portal(game);
 	else if (c == 'C')
 		mlx_put_image_to_window(game->mlx, game->window, game->collectible,
 			element->x, element->y);
@@ -39,15 +37,14 @@ int	load_sprites(t_game *game)
 	game->fps = 0;
 	game->collectible = mlx_xpm_file_to_image(game->mlx,
 			"textures/collectible.xpm", &width, &height);
-	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm",
-			&width, &height);
+	game->exitp = create_exit_animation(game);
 	game->grass = mlx_xpm_file_to_image(game->mlx, "textures/grass.xpm",
 			&width, &height);
 	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm",
 			&width, &height);
-	game->playerp = mlx_xpm_file_to_image(game->mlx, "textures/player.xpm",
-			&width, &height);
-	return (game->playerp && game->collectible && game->exit && game->grass && game->wall);
+	game->playerp = create_player_animation(game);
+	return (game->playerp && game->collectible && game->exitp
+		&& game->grass && game->wall);
 }
 
 int	setup_mlx(t_game *game)
@@ -101,7 +98,10 @@ void	open_window(t_game *game)
 		row = row->next;
 	}
 	if (!load_sprites(game))
+	{
+		ft_printf("Every images not loaded...\n");
 		return ;
+	}
 	game->window = mlx_new_window(game->mlx, x, y, "So_long");
 }
 
