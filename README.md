@@ -1,2 +1,1 @@
-Faire les images au propre
-Faire les animations
+Faire les collectibles au propre
