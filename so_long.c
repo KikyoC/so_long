@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 10:40:16 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 13:35:07 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,16 @@ int	key_press(int keycode, t_game *game)
 	move_player(old_pos, game);
 	game->player->movements += moved;
 	if (moved)
-		ft_printf("%d\n", game->player->movements);
+		update_count(game);
 	return (1);
 }
 
 int	game_loop(t_game *game)
 {
-	if (game->player->pos->exit && game->map->collectibles == game->player->collectibles)
+	if (game->player->pos->exit && game->map->collectibles
+		== game->player->collectibles)
 		mlx_loop_end(game->mlx);
-	if (game->fps >= 180)
+	if (game->fps >= 10000)
 		game->fps = -1;
 	game->fps++;
 	animate_player(game);

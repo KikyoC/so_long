@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/25 10:26:01 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/26 13:36:12 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,10 @@ SRCS = so_long.c \
 	srcs/utils/refresh.c \
 	srcs/game/delete-game.c \
 	srcs/game/create-game.c \
-	srcs/player/move.c \
+	srcs/player/player.c \
 	srcs/animation/animation.c \
 	srcs/animation/delete-animation.c \
+	srcs/animation/counter.c \
 
 GREEN = \e[0;32m
 WHITE = \e[0;37m

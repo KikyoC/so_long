@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/25 16:08:00 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 12:26:44 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_game
 	struct s_animation		*playerp;
 	void					*wall;
 	int						fps;
+	char					*counter;
 }	t_game;
 
 typedef struct s_animation
@@ -111,4 +112,5 @@ t_animation	*create_player_animation(t_game *game);
 t_animation	*create_exit_animation(t_game *game);
 void		animate_player(t_game *game);
 void		animate_portal(t_game *game);
+void		update_count(t_game *game);
 #endif

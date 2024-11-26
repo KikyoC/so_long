@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:50:36 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 10:39:03 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 12:12:42 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,19 +87,19 @@ void	animate_player(t_game *game)
 	t_element	*pos;
 
 	pos = game->player->pos;
-	if (game->fps <= 36)
+	if (game->fps <= 2000)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->playerp->frames[0], pos->x, pos->y);
-	else if (game->fps <= 72)
+	else if (game->fps <= 4000)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->playerp->frames[1], pos->x, pos->y);
-	else if (game->fps <= 108)
+	else if (game->fps <= 6000)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->playerp->frames[2], pos->x, pos->y);
-	else if (game->fps <= 144)
+	else if (game->fps <= 8000)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->playerp->frames[3], pos->x, pos->y);
-	else if (game->fps <= 180)
+	else if (game->fps <= 10000)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->playerp->frames[4], pos->x, pos->y);
 }
@@ -111,22 +111,22 @@ void	animate_portal(t_game *game)
 
 	exit = game->exit;
 	f = mlx_put_image_to_window;
-	if (game->fps <= 20)
+	if (game->fps <= 1000)
 		f(game->mlx, game->window, game->exitp->frames[0], exit->x, exit->y);
-	else if (game->fps <= 40)
+	else if (game->fps <= 2000)
 		f(game->mlx, game->window, game->exitp->frames[1], exit->x, exit->y);
-	else if (game->fps <= 60)
+	else if (game->fps <= 3000)
 		f(game->mlx, game->window, game->exitp->frames[2], exit->x, exit->y);
-	else if (game->fps <= 80)
+	else if (game->fps <= 4000)
 		f(game->mlx, game->window, game->exitp->frames[3], exit->x, exit->y);
-	else if (game->fps <= 100)
+	else if (game->fps <= 5000)
 		f(game->mlx, game->window, game->exitp->frames[4], exit->x, exit->y);
-	else if (game->fps <= 120)
+	else if (game->fps <= 6000)
 		f(game->mlx, game->window, game->exitp->frames[5], exit->x, exit->y);
-	else if (game->fps <= 140)
+	else if (game->fps <= 7000)
 		f(game->mlx, game->window, game->exitp->frames[6], exit->x, exit->y);
-	else if (game->fps <= 160)
+	else if (game->fps <= 8000)
 		f(game->mlx, game->window, game->exitp->frames[7], exit->x, exit->y);
-	else if (game->fps <= 180)
+	else if (game->fps <= 9000)
 		f(game->mlx, game->window, game->exitp->frames[8], exit->x, exit->y);
 }
