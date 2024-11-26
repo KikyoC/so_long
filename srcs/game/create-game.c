@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 15:38:10 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:53:25 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	put_image(char c, t_game *game, t_element *element)
 	else if (c == 'E')
 		animate_portal(game);
 	else if (c == 'C')
-		mlx_put_image_to_window(game->mlx, game->window, game->collectible,
-			element->x, element->y);
+		animate_collectible(game, element);
 	else
 		mlx_put_image_to_window(game->mlx, game->window, game->grass,
 			element->x, element->y);
@@ -35,8 +34,7 @@ int	load_sprites(t_game *game)
 	int		height;
 
 	game->fps = 0;
-	game->collectible = mlx_xpm_file_to_image(game->mlx,
-			"textures/collectible.xpm", &width, &height);
+	game->collectible = create_coin_animation(game);
 	game->exitp = create_exit_animation(game);
 	game->grass = mlx_xpm_file_to_image(game->mlx, "textures/grass.xpm",
 			&width, &height);
@@ -51,22 +49,16 @@ int	setup_mlx(t_game *game)
 {
 	t_element	*element;
 	t_row		*row;
-	int			i;
-	int			j;
 
-	i = 0;
 	row = game->map->first;
 	while (row)
 	{
 		element = row->first;
-		j = 0;
 		while (element)
 		{
 			put_image(element->value, game, element);
 			element = element->next;
-			j++;
 		}
-		i++;
 		row = row->next;
 	}
 	mlx_key_hook(game->window, &key_press, game);

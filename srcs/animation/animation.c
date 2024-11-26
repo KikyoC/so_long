@@ -6,81 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:50:36 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 12:12:42 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:40:44 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
-
-t_animation	*create_player_animation(t_game *game)
-{
-	t_animation	*res;
-	int			width;
-	int			height;
-
-	res = ft_calloc(1, sizeof(t_animation));
-	if (!res)
-		return (NULL);
-	res->frames = ft_calloc(6, sizeof(void *));
-	if (!res->frames)
-		return (NULL);
-	res->frames[0] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/player1.xpm", &width, &height);
-	res->frames[1] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/player2.xpm", &width, &height);
-	res->frames[2] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/player3.xpm", &width, &height);
-	res->frames[3] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/player4.xpm", &width, &height);
-	res->frames[4] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/player5.xpm", &width, &height);
-	if (!res->frames[0] || !res->frames[1] || !res->frames[2]
-		|| !res->frames[3] || !res->frames[4])
-		return (free_animation(game, res));
-	return (res);
-}
-
-void	fill_animation(t_animation *animation, t_game *game)
-{
-	int		width;
-	int		height;
-
-	animation->frames[0] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit1.xpm", &width, &height);
-	animation->frames[1] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit2.xpm", &width, &height);
-	animation->frames[2] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit3.xpm", &width, &height);
-	animation->frames[3] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit4.xpm", &width, &height);
-	animation->frames[4] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit5.xpm", &width, &height);
-	animation->frames[5] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit6.xpm", &width, &height);
-	animation->frames[6] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit7.xpm", &width, &height);
-	animation->frames[7] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit8.xpm", &width, &height);
-	animation->frames[8] = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit/exit9.xpm", &width, &height);
-}
-
-t_animation	*create_exit_animation(t_game *game)
-{
-	t_animation	*res;
-
-	res = ft_calloc(1, sizeof(t_animation));
-	if (!res)
-		return (NULL);
-	res->frames = ft_calloc(10, sizeof(void *));
-	if (!res->frames)
-		return (NULL);
-	fill_animation(res, game);
-	if (!res->frames[0] || !res->frames[1] || !res->frames[2]
-		|| !res->frames[3] || !res->frames[4])
-		return (free_animation(game, res));
-	return (res);
-}
 
 void	animate_player(t_game *game)
 {
@@ -129,4 +59,48 @@ void	animate_portal(t_game *game)
 		f(game->mlx, game->window, game->exitp->frames[7], exit->x, exit->y);
 	else if (game->fps <= 9000)
 		f(game->mlx, game->window, game->exitp->frames[8], exit->x, exit->y);
+}
+
+void	animate_collectible(t_game *game, t_element *e)
+{
+	int			(*f)(void *ptr, void *win, void *img, int x, int y);
+
+	f = mlx_put_image_to_window;
+	if (game->fps <= 1000)
+		f(game->mlx, game->window, game->collectible->frames[0], e->x, e->y);
+	else if (game->fps <= 2000)
+		f(game->mlx, game->window, game->collectible->frames[1], e->x, e->y);
+	else if (game->fps <= 3000)
+		f(game->mlx, game->window, game->collectible->frames[2], e->x, e->y);
+	else if (game->fps <= 4000)
+		f(game->mlx, game->window, game->collectible->frames[3], e->x, e->y);
+	else if (game->fps <= 5000)
+		f(game->mlx, game->window, game->collectible->frames[4], e->x, e->y);
+	else if (game->fps <= 6000)
+		f(game->mlx, game->window, game->collectible->frames[5], e->x, e->y);
+	else if (game->fps <= 7000)
+		f(game->mlx, game->window, game->collectible->frames[6], e->x, e->y);
+	else if (game->fps <= 8000)
+		f(game->mlx, game->window, game->collectible->frames[7], e->x, e->y);
+	else if (game->fps <= 9000)
+		f(game->mlx, game->window, game->collectible->frames[8], e->x, e->y);
+}
+
+void	animate_collectibles(t_game *game)
+{
+	t_row		*row;
+	t_element	*element;
+
+	row = game->map->first;
+	while (row)
+	{
+		element = row->first;
+		while (element)
+		{
+			if (element->value == 'C')
+				animate_collectible(game, element);
+			element = element->next;
+		}
+		row = row->next;
+	}
 }

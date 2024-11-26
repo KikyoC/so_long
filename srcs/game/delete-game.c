@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:17:24 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/25 16:06:50 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:48:51 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int	delete_game(t_game *game)
 	if (game->map)
 		free_map(game->map);
 	if (game->playerp)
-		free_animation(game, game->playerp);
+		free_animation(game, game->playerp, 5);
 	if (game->grass)
 		mlx_destroy_image(game->mlx, game->grass);
 	if (game->collectible)
-		mlx_destroy_image(game->mlx, game->collectible);
+		free_animation(game, game->collectible, 9);
 	if (game->wall)
 		mlx_destroy_image(game->mlx, game->wall);
 	if (game->exit)
-		free_animation(game, game->exitp);
+		free_animation(game, game->exitp, 9);
 	if (game->mlx)
 	{
 		mlx_destroy_display(game->mlx);

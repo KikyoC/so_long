@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/26 16:45:21 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/26 17:42:03 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS = so_long.c \
 	srcs/animation/animation.c \
 	srcs/animation/delete-animation.c \
 	srcs/animation/counter.c \
+	srcs/animation/create-animation.c \
 
 SRCS_BONUS = so_long_bonus.c \
 	srcs/map_manager/map-create.c \
@@ -56,6 +57,7 @@ SRCS_BONUS = so_long_bonus.c \
 	srcs/animation/animation.c \
 	srcs/animation/delete-animation.c \
 	srcs/animation/counter.c \
+	srcs/animation/create-animation.c \
 
 GREEN = \e[0;32m
 WHITE = \e[0;37m
