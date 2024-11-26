@@ -5,3 +5,4 @@ libmlx.a
 so_long
 gnl.a
 textures/*.xcf
+maps/*
