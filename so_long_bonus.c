@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 15:54:34 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:46:10 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	error = NULL;
-	game = create_game(fd, argv[1], &error, 0);
+	game = create_game(fd, argv[1], &error, 1);
 	if (error)
 		ft_printf("Error\n%s\n", error);
 	else if (game)

@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/25 16:12:10 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:38:10 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	open_window(t_game *game)
 	game->window = mlx_new_window(game->mlx, x, y, "So_long");
 }
 
-t_game	*create_game(int fd, char **error)
+t_game	*create_game(int fd, char *name, char **error, int bonus)
 {
 	t_game	*game;
 
@@ -115,13 +115,13 @@ t_game	*create_game(int fd, char **error)
 	game->player = ft_calloc(1, sizeof(t_player));
 	if (!game->player)
 		return (game);
-	init_player(game->player);
+	init(game, bonus);
 	game->map = create_map(fd, game);
 	close(fd);
 	if (!game->map)
 		return (game);
 	game->map->game = game;
-	*error = check(game->map, game->player);
+	*error = check(game->map, game->player, name);
 	if (*error)
 		return (game);
 	game->mlx = mlx_init();

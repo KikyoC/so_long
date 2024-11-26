@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/26 14:46:40 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/26 16:45:21 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,32 @@ SRCS = so_long.c \
 	srcs/animation/delete-animation.c \
 	srcs/animation/counter.c \
 
+SRCS_BONUS = so_long_bonus.c \
+	srcs/map_manager/map-create.c \
+	srcs/map_manager/map-delete.c \
+	srcs/map_manager/checker/map-check.c \
+	srcs/map_manager/checker/element-checker.c \
+	srcs/map_manager/checker/solvable.c \
+	srcs/map_manager/checker/move-check.c \
+	srcs/utils/put_end.c \
+	srcs/utils/last.c \
+	srcs/utils/len.c \
+	srcs/utils/movements.c \
+	srcs/utils/refresh.c \
+	srcs/game/delete-game.c \
+	srcs/game/create-game.c \
+	srcs/player/player.c \
+	srcs/animation/animation.c \
+	srcs/animation/delete-animation.c \
+	srcs/animation/counter.c \
+
 GREEN = \e[0;32m
 WHITE = \e[0;37m
 AQUA = \e[0;36m
 YELLOW = \e[0;33m
 
 OBJS = $(addprefix objs/, $(SRCS:.c=.o))
+OBJS_BONUS = $(addprefix objs/, $(SRCS_BONUS:.c=.o))
 
 OBJS_DIR = objs/ \
 	objs/srcs/ \
@@ -126,4 +146,10 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re install
+bonus: $(MLX_DIR) $(OBJS_DIR) $(MLX) $(PRINTF) $(LIBFT) $(GNL) $(OBJS_BONUS)
+	@echo "$(YELLOW)Compiling so_long... $(WHITE)[$(GREEN)5$(WHITE)/$(AQUA)5$(WHITE)]"
+	@cc $(CFLAGS) -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz $(OBJS_BONUS) $(MLX) $(PRINTF) $(LIBFT) $(GNL) -o $(NAME)
+	@echo "$(GREEN)Done.${WHITE}"
+	@echo "$(GREEN)Bonus sucessfully compiled.${WHITE}"
+
+.PHONY: all clean fclean re install bonus

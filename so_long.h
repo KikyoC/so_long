@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 14:01:02 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:36:00 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_game
 	void					*wall;
 	int						fps;
 	char					*counter;
+	int						bonus;
 }	t_game;
 
 typedef struct s_animation
@@ -86,7 +87,7 @@ t_map		*create_map(int fd, t_game *game);
 char		*get_next_line(int fd);
 t_element	*last_in_row(t_row *row);
 t_row		*last_in_map(t_map *map);
-char		*check(t_map *map, t_player *player);
+char		*check(t_map *map, t_player *player, char *name);
 int			row_len(t_row *row);
 int			left(t_player *player);
 int			right(t_player *player);
@@ -99,14 +100,14 @@ int			check_down(t_player *player);
 int			check_left(t_player *player);
 int			check_right(t_player *player);
 void		solve(t_player *player);
-t_game		*create_game(int fd, char **error);
+t_game		*create_game(int fd, char *name, char **error, int bonus);
 int			game_loop(t_game *game);
 int			key_press(int keycode, t_game *game);
 int			delete_game(t_game *game);
 void		move_player(t_element *old_pos, t_game *game);
 void		print_map(t_map *map);
 void		move_player(t_element *old_pos, t_game *game);
-void		init_player(t_player *player);
+void		init(t_game *game, int bonus);
 void		*free_animation(t_game *game, t_animation *animation);
 t_animation	*create_player_animation(t_game *game);
 t_animation	*create_exit_animation(t_game *game);

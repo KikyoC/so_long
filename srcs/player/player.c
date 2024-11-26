@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:44:16 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 12:32:33 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:35:21 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	move_player(t_element *old_pos, t_game *game)
 	animate_player(game);
 }
 
-void	init_player(t_player *player)
+void	init(t_game *game, int bonus)
 {
-	player->collectibles = 0;
-	player->movements = 0;
+	game->player->collectibles = 0;
+	game->player->movements = 0;
+	game->bonus = bonus;
 }
