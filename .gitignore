@@ -3,4 +3,5 @@ libft.a
 libftprintf.a
 libmlx.a
 so_long
+gnl.a
 textures/*.xcf
