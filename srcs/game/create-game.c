@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 17:53:25 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/27 11:15:25 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ int	load_sprites(t_game *game)
 	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm",
 			&width, &height);
 	game->playerp = create_player_animation(game);
+	game->patrolp = create_patrol_animation(game);
 	return (game->playerp && game->collectible && game->exitp
-		&& game->grass && game->wall);
+		&& game->grass && game->wall && game->patrolp);
 }
 
 int	setup_mlx(t_game *game)

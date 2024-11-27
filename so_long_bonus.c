@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 17:54:22 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/27 11:32:15 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	game_loop(t_game *game)
 	animate_collectibles(game);
 	if (game->player->pos != game->exit)
 		animate_portal(game);
+	animate_patrol(game);
 	return (1);
 }
 

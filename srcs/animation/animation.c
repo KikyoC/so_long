@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:50:36 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 17:40:44 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/27 11:34:09 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,31 @@ void	animate_collectibles(t_game *game)
 		}
 		row = row->next;
 	}
+}
+
+void	animate_patrol(t_game *game)
+{
+	int			(*f)(void *ptr, void *win, void *img, int x, int y);
+	t_element	*e;
+
+	e = game->map->first->next->first->next;
+	f = mlx_put_image_to_window;
+	if (game->fps <= 1000)
+		f(game->mlx, game->window, game->patrolp->frames[0], e->x, e->y);
+	else if (game->fps <= 2000)
+		f(game->mlx, game->window, game->patrolp->frames[1], e->x, e->y);
+	else if (game->fps <= 3000)
+		f(game->mlx, game->window, game->patrolp->frames[2], e->x, e->y);
+	else if (game->fps <= 4000)
+		f(game->mlx, game->window, game->patrolp->frames[0], e->x, e->y);
+	else if (game->fps <= 5000)
+		f(game->mlx, game->window, game->patrolp->frames[1], e->x, e->y);
+	else if (game->fps <= 6000)
+		f(game->mlx, game->window, game->patrolp->frames[2], e->x, e->y);
+	else if (game->fps <= 7000)
+		f(game->mlx, game->window, game->patrolp->frames[0], e->x, e->y);
+	else if (game->fps <= 8000)
+		f(game->mlx, game->window, game->patrolp->frames[1], e->x, e->y);
+	else if (game->fps <= 9000)
+		f(game->mlx, game->window, game->patrolp->frames[2], e->x, e->y);
 }

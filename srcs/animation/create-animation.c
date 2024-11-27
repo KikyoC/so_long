@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:32:10 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 17:49:57 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/27 11:23:15 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_animation	*create_player_animation(t_game *game)
 		return (NULL);
 	res->frames = ft_calloc(6, sizeof(void *));
 	if (!res->frames)
-		return (NULL);
+		return (free_animation(game, res, 0));
 	res->frames[0] = mlx_xpm_file_to_image(game->mlx,
 			"textures/player/player1.xpm", &width, &height);
 	res->frames[1] = mlx_xpm_file_to_image(game->mlx,
@@ -65,31 +65,6 @@ void	fill_exit_animation(t_animation *animation, t_game *game)
 			"textures/exit/exit9.xpm", &width, &height);
 }
 
-void	fill_coin_animation(t_animation *animation, t_game *game)
-{
-	int		width;
-	int		height;
-
-	animation->frames[0] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin1.xpm", &width, &height);
-	animation->frames[1] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin2.xpm", &width, &height);
-	animation->frames[2] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin3.xpm", &width, &height);
-	animation->frames[3] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin4.xpm", &width, &height);
-	animation->frames[4] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin5.xpm", &width, &height);
-	animation->frames[5] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin6.xpm", &width, &height);
-	animation->frames[6] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin7.xpm", &width, &height);
-	animation->frames[7] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin8.xpm", &width, &height);
-	animation->frames[8] = mlx_xpm_file_to_image(game->mlx,
-			"textures/coin/coin9.xpm", &width, &height);
-}
-
 t_animation	*create_exit_animation(t_game *game)
 {
 	t_animation	*res;
@@ -99,7 +74,7 @@ t_animation	*create_exit_animation(t_game *game)
 		return (NULL);
 	res->frames = ft_calloc(10, sizeof(void *));
 	if (!res->frames)
-		return (NULL);
+		return (free_animation(game, res, 0));
 	fill_exit_animation(res, game);
 	if (!res->frames[0] || !res->frames[1] || !res->frames[2]
 		|| !res->frames[3] || !res->frames[4] || !res->frames[5]
@@ -110,18 +85,50 @@ t_animation	*create_exit_animation(t_game *game)
 
 t_animation	*create_coin_animation(t_game *game)
 {
-		t_animation	*res;
+	t_animation	*res;
+	void		*(*f)(void *mlx, char *path, int *w, int *h);
+	int			i;
 
+	f = mlx_xpm_file_to_image;
 	res = ft_calloc(1, sizeof(t_animation));
 	if (!res)
 		return (NULL);
 	res->frames = ft_calloc(10, sizeof(void *));
 	if (!res->frames)
-		return (NULL);
-	fill_coin_animation(res, game);
-	if (!res->frames[0] || !res->frames[1] || !res->frames[2]
-		|| !res->frames[3] || !res->frames[4] || !res->frames[5]
-		|| !res->frames[6] || !res->frames[7] || !res->frames[8])
+		return (free_animation(game, res, 0));
+	res->frames[0] = f(game->mlx, "textures/coin/coin1.xpm", &i, &i);
+	res->frames[1] = f(game->mlx, "textures/coin/coin2.xpm", &i, &i);
+	res->frames[2] = f(game->mlx, "textures/coin/coin3.xpm", &i, &i);
+	res->frames[3] = f(game->mlx, "textures/coin/coin4.xpm", &i, &i);
+	res->frames[4] = f(game->mlx, "textures/coin/coin5.xpm", &i, &i);
+	res->frames[5] = f(game->mlx, "textures/coin/coin6.xpm", &i, &i);
+	res->frames[6] = f(game->mlx, "textures/coin/coin7.xpm", &i, &i);
+	res->frames[7] = f(game->mlx, "textures/coin/coin8.xpm", &i, &i);
+	res->frames[8] = f(game->mlx, "textures/coin/coin9.xpm", &i, &i);
+	if (!res->frames[0] || !res->frames[1] || !res->frames[2] || !res->frames[3]
+		|| !res->frames[4] || !res->frames[5] || !res->frames[6]
+		|| !res->frames[7] || !res->frames[8])
 		return (free_animation(game, res, 9));
+	return (res);
+}
+
+t_animation	*create_patrol_animation(t_game *game)
+{
+	t_animation	*res;
+	void		*(*f)(void *mlx, char *path, int *w, int *h);
+	int			i;
+
+	f = mlx_xpm_file_to_image;
+	res = ft_calloc(1, sizeof(t_animation));
+	if (!res)
+		return (NULL);
+	res->frames = ft_calloc(4, sizeof(void *));
+	if (!res->frames)
+		return (free_animation(game, res, 0));
+	res->frames[0] = f(game->mlx, "textures/patrol/patrol1.xpm", &i, &i);
+	res->frames[1] = f(game->mlx, "textures/patrol/patrol2.xpm", &i, &i);
+	res->frames[2] = f(game->mlx, "textures/patrol/patrol3.xpm", &i, &i);
+	if (!res->frames[0] || !res->frames[1] || !res->frames[2])
+		return (free_animation(game, res, 3));
 	return (res);
 }

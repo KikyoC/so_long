@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:07:06 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 17:49:19 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/27 11:19:27 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*free_animation(t_game *game, t_animation *animation, int frames)
 	i = 0;
 	if (!animation)
 		return (NULL);
-	while (i < frames)
+	while (i <= frames)
 	{
 		if (animation->frames[i])
 			mlx_destroy_image(game->mlx, animation->frames[i]);
