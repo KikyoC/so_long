@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:05:52 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:49:10 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 int	key_press(int keycode, t_game *game)
 {

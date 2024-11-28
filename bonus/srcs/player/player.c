@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:44:16 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:20:13 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:49:16 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 void	move_player(t_element *old_pos, t_game *game)
 {

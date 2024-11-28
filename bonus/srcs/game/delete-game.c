@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:17:24 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:18:21 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:49:25 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 int	delete_game(t_game *game)
 {

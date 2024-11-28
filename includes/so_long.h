@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_longm.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:39:27 by togauthi         ###   ########.fr       */
+/*   Created: 2024/11/28 10:21:54 by togauthi          #+#    #+#             */
+/*   Updated: 2024/11/28 12:08:19 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONGM_H
+# define SO_LONGM_H
 # include "../libft/libft.h"
 # include "../printf/ft_printf.h"
 # include <fcntl.h>
@@ -63,21 +63,14 @@ typedef struct s_game
 	t_player				*player;
 	t_map					*map;
 	void					*coin;
-	struct s_animation		*collectible;
+	void					*collectible;
 	struct s_element		*exit;
-	struct s_animation		*exitp;
+	void					*exitp;
 	void					*grass;
-	struct s_animation		*playerp;
-	struct s_animation		*patrolp;
+	void					*playerp;
 	void					*wall;
 	int						fps;
-	char					*counter;
 }	t_game;
-
-typedef struct s_animation
-{
-	void		**frames;
-}	t_animation;
 
 void		*free_map(t_map *map);
 void		*free_row(t_row *row);
@@ -95,10 +88,6 @@ int			up(t_player *player);
 int			down(t_player *player);
 int			is_solvable(t_map *map, t_player *player);
 void		refresh_collectibles(t_map *map);
-int			check_up(t_player *player);
-int			check_down(t_player *player);
-int			check_left(t_player *player);
-int			check_right(t_player *player);
 void		solve(t_player *player);
 t_game		*create_game(int fd, char *name, char **error);
 int			game_loop(t_game *game);
@@ -107,15 +96,12 @@ int			delete_game(t_game *game);
 void		move_player(t_element *old_pos, t_game *game);
 void		move_player(t_element *old_pos, t_game *game);
 void		init(t_game *game);
-void		*free_animation(t_game *game, t_animation *animation, int frames);
-t_animation	*create_player_animation(t_game *game);
-t_animation	*create_coin_animation(t_game *game);
-t_animation	*create_exit_animation(t_game *game);
-t_animation	*create_patrol_animation(t_game *game);
-void		animate_player(t_game *game);
-void		animate_portal(t_game *game);
-void		update_count(t_game *game);
-void		animate_collectibles(t_game *game);
-void		animate_collectible(t_game *game, t_element *element);
-void		animate_patrol(t_game *game);
+int			full(t_row *row);
+int			check_border(t_map *map);
+int			is_rect(t_map *map);
+int			check_elements(t_map *map);
+void		check_up(t_player *player);
+void		check_down(t_player *player);
+void		check_left(t_player *player);
+void		check_right(t_player *player);
 #endif

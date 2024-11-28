@@ -1,45 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   last.c                                             :+:      :+:    :+:   */
+/*   map-delete.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 15:26:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:45:36 by togauthi         ###   ########.fr       */
+/*   Created: 2024/11/15 13:56:12 by togauthi          #+#    #+#             */
+/*   Updated: 2024/11/28 13:22:38 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
-/* last_in_row:
+/* free_row:
 *	Take a row as parameter
-*	Return the last element of the row
+*	Free the row and return NULL
 */
-t_element	*last_in_row(t_row *row)
+void	*free_row(t_row	*row)
 {
 	t_element	*current;
+	t_element	*next;
 
 	current = row->first;
-	if (!current)
-		return (NULL);
-	while (current->next)
-		current = current->next;
-	return (current);
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(row);
+	return (NULL);
 }
 
-/* last_in_map:
+/* free_row:
 *	Take the map as parameter
-*	Return last row of the map
+*	Free the map and return NULL
 */
-t_row	*last_in_map(t_map *map)
+void	*free_map(t_map *map)
 {
 	t_row	*current;
+	t_row	*next;
 
 	current = map->first;
-	if (!current)
-		return (NULL);
-	while (current->next)
-		current = current->next;
-	return (current);
+	while (current)
+	{
+		next = current->next;
+		free_row(current);
+		current = next;
+	}
+	free(map);
+	return (NULL);
 }

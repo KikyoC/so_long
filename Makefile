@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/28 10:48:04 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/28 13:54:36 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,33 +20,23 @@ MLX_DIR = mlx_linux/
 
 CFLAGS = -Wall -Werror -Wextra -Iincludes -g
 SRCS = mandatory/so_long.c \
-	mandatory/srcs/map_manager/map-create.c \
-	mandatory/srcs/map_manager/map-delete.c \
-	mandatory/srcs/map_manager/checker/map-check.c \
-	mandatory/srcs/map_manager/checker/element-checker.c \
-	mandatory/srcs/map_manager/checker/solvable.c \
-	mandatory/srcs/map_manager/checker/move-check.c \
-	mandatory/srcs/utils/put_end.c \
-	mandatory/srcs/utils/last.c \
-	mandatory/srcs/utils/len.c \
-	mandatory/srcs/utils/movements.c \
-	mandatory/srcs/utils/refresh.c \
 	mandatory/srcs/game/delete-game.c \
 	mandatory/srcs/game/create-game.c \
 	mandatory/srcs/player/player.c \
 
+COMMON_SRCS = common/map_manager/checker/element-checker.c \
+	common/map_manager/checker/map-check.c \
+	common/map_manager/checker/move-check.c \
+	common/map_manager/checker/solvable.c \
+	common/map_manager/map-delete.c \
+	common/map_manager/map-create.c \
+	common/utils/last.c \
+	common/utils/len.c \
+	common/utils/movements.c \
+	common/utils/put_end.c \
+	common/utils/refresh.c \
+
 SRCS_BONUS = bonus/so_long.c \
-	bonus/srcs/map_manager/map-create.c \
-	bonus/srcs/map_manager/map-delete.c \
-	bonus/srcs/map_manager/checker/map-check.c \
-	bonus/srcs/map_manager/checker/element-checker.c \
-	bonus/srcs/map_manager/checker/solvable.c \
-	bonus/srcs/map_manager/checker/move-check.c \
-	bonus/srcs/utils/put_end.c \
-	bonus/srcs/utils/last.c \
-	bonus/srcs/utils/len.c \
-	bonus/srcs/utils/movements.c \
-	bonus/srcs/utils/refresh.c \
 	bonus/srcs/game/delete-game.c \
 	bonus/srcs/game/create-game.c \
 	bonus/srcs/player/player.c \
@@ -62,6 +52,7 @@ YELLOW = \e[0;33m
 
 OBJS = $(addprefix objs/, $(SRCS:.c=.o))
 OBJS_BONUS = $(addprefix objs/, $(SRCS_BONUS:.c=.o))
+COMMON_OBJS = $(addprefix objs/, $(COMMON_SRCS:.c=.o))
 
 OBJS_DIR = objs/bonus \
 	objs/bonus/srcs/ \
@@ -76,8 +67,12 @@ OBJS_DIR = objs/bonus \
 	objs/mandatory/srcs/map_manager/ \
 	objs/mandatory/srcs/map_manager/checker/ \
 	objs/mandatory/srcs/utils/ \
-	objs/mandatory/srcs/game \
-	objs/mandatory/srcs/player \
+	objs/mandatory/srcs/game/ \
+	objs/mandatory/srcs/player/ \
+	objs/common/ \
+	objs/common/utils/ \
+	objs/common/map_manager/ \
+	objs/common/map_manager/checker/ \
 
 all: $(MLX_DIR) $(OBJS_DIR) $(NAME)
 
@@ -114,9 +109,9 @@ $(MLX_DIR):
 	@rm -f mlx_linux.tar.gz
 	@echo "$(GREEN)Sucessfully downloaded minilibx"
 
-$(NAME): $(MLX) $(PRINTF) $(LIBFT) $(GNL) $(OBJS)
+$(NAME): $(MLX) $(PRINTF) $(LIBFT) $(GNL) $(COMMON_OBJS) $(OBJS)
 	@echo "$(YELLOW)Compiling so_long... $(WHITE)[$(GREEN)5$(WHITE)/$(AQUA)5$(WHITE)]"
-	@cc $(CFLAGS) -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz $(OBJS) $(MLX) $(PRINTF) $(LIBFT) $(GNL) -o $@
+	@cc $(CFLAGS) -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz $(OBJS) $(COMMON_OBJS) $(MLX) $(PRINTF) $(LIBFT) $(GNL) -o $@
 	@echo "$(GREEN)Done.${WHITE}"
 
 objs/%.o: %.c
@@ -152,9 +147,9 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(MLX_DIR) $(OBJS_DIR) $(MLX) $(PRINTF) $(LIBFT) $(GNL) $(OBJS_BONUS)
+bonus: $(MLX_DIR) $(OBJS_DIR) $(MLX) $(PRINTF) $(LIBFT) $(GNL) $(COMMON_OBJS) $(OBJS_BONUS)
 	@echo "$(YELLOW)Compiling so_long... $(WHITE)[$(GREEN)5$(WHITE)/$(AQUA)5$(WHITE)]"
-	@cc $(CFLAGS) -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz $(OBJS_BONUS) $(MLX) $(PRINTF) $(LIBFT) $(GNL) -o $(NAME)
+	@cc $(CFLAGS) -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz $(OBJS_BONUS) $(COMMON_OBJS) $(MLX) $(PRINTF) $(LIBFT) $(GNL) -o $(NAME)
 	@echo "$(GREEN)Done.${WHITE}"
 	@echo "$(GREEN)Bonus sucessfully compiled.${WHITE}"
 

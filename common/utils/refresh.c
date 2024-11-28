@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:04:13 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:51:54 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:22:35 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
 /* refresh_collectibles:
 *	Take the map as parameter

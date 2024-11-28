@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:50:36 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:17:56 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:49:29 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 void	animate_player(t_game *game)
 {

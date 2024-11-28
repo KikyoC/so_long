@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:52:07 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:21:30 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
 /* key_press:
 	Takes keycode and general game as argument
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	game = create_game(fd, argv[1], &error);
 	if (error)
 		ft_printf("Error\n%s\n", error);
-	else if (game)
+	if (game)
 	{
 		if (game->mlx && game->window)
 			mlx_destroy_window(game->mlx, game->window);

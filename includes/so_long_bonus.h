@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_longm.h                                         :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 10:21:54 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:38:55 by togauthi         ###   ########.fr       */
+/*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
+/*   Updated: 2024/11/28 12:00:15 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONGM_H
-# define SO_LONGM_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 # include "../libft/libft.h"
 # include "../printf/ft_printf.h"
 # include <fcntl.h>
@@ -63,14 +63,21 @@ typedef struct s_game
 	t_player				*player;
 	t_map					*map;
 	void					*coin;
-	void					*collectible;
+	struct s_animation		*collectible;
 	struct s_element		*exit;
-	void					*exitp;
+	struct s_animation		*exitp;
 	void					*grass;
-	void					*playerp;
+	struct s_animation		*playerp;
+	struct s_animation		*patrolp;
 	void					*wall;
 	int						fps;
+	char					*counter;
 }	t_game;
+
+typedef struct s_animation
+{
+	void		**frames;
+}	t_animation;
 
 void		*free_map(t_map *map);
 void		*free_row(t_row *row);
@@ -98,6 +105,16 @@ int			game_loop(t_game *game);
 int			key_press(int keycode, t_game *game);
 int			delete_game(t_game *game);
 void		move_player(t_element *old_pos, t_game *game);
-void		move_player(t_element *old_pos, t_game *game);
 void		init(t_game *game);
+void		*free_animation(t_game *game, t_animation *animation, int frames);
+t_animation	*create_player_animation(t_game *game);
+t_animation	*create_coin_animation(t_game *game);
+t_animation	*create_exit_animation(t_game *game);
+t_animation	*create_patrol_animation(t_game *game);
+void		animate_player(t_game *game);
+void		animate_portal(t_game *game);
+void		update_count(t_game *game);
+void		animate_collectibles(t_game *game);
+void		animate_collectible(t_game *game, t_element *element);
+void		animate_patrol(t_game *game);
 #endif

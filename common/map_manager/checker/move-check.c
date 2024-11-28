@@ -6,13 +6,18 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:11:57 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:19:37 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:22:03 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <so_long.h>
 
-int	check_up(t_player *player)
+/* check_up:
+*	Take the player as parameter
+*	Check if player can go up and if that pos isn't visited
+*	If it's visited the player go back
+*/
+void	check_up(t_player *player)
 {
 	if (up(player))
 	{
@@ -25,10 +30,14 @@ int	check_up(t_player *player)
 			down(player);
 		}
 	}
-	return (0);
 }
 
-int	check_down(t_player *player)
+/* check_down:
+*	Take the player as parameter
+*	Check if player can go down and if that pos isn't visited
+*	If it's visited the player go back
+*/
+void	check_down(t_player *player)
 {
 	if (down(player))
 	{
@@ -41,10 +50,14 @@ int	check_down(t_player *player)
 			up(player);
 		}
 	}
-	return (0);
 }
 
-int	check_left(t_player *player)
+/* check_left:
+*	Take the player as parameter
+*	Check if player can go left and if that pos isn't visited
+*	If it's visited the player go back
+*/
+void	check_left(t_player *player)
 {
 	if (left(player))
 	{
@@ -57,10 +70,14 @@ int	check_left(t_player *player)
 			right(player);
 		}
 	}
-	return (0);
 }
 
-int	check_right(t_player *player)
+/* check_right:
+*	Take the player as parameter
+*	Check if player can go right and if that pos isn't visited
+*	If it's visited the player go back
+*/
+void	check_right(t_player *player)
 {
 	if (right(player))
 	{
@@ -73,5 +90,4 @@ int	check_right(t_player *player)
 			left(player);
 		}
 	}
-	return (0);
 }

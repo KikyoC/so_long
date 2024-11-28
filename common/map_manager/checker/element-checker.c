@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:18:55 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:29:06 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:21:57 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <so_long.h>
 
 /* full:
 *	Take a row as parameter
@@ -42,9 +42,11 @@ int	check_border(t_map *map)
 	if (!(full(map->first) && full(last_in_map(map))))
 		return (0);
 	row = row->next;
+	if (!row)
+		return (1);
 	while (row->next)
 	{
-		if (row->first->value == '0' || last_in_row(row)->value == '0')
+		if (row->first->value != '1' || last_in_row(row)->value != '1')
 			return (0);
 		row = row->next;
 	}

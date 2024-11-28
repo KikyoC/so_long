@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:27:44 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:48:58 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:22:30 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
 /* left:
 *	Take the player as parameter
@@ -19,7 +19,7 @@
 */
 int	left(t_player *player)
 {
-	if (player->pos->prev->value == '1')
+	if (!player->pos->prev || player->pos->prev->value == '1')
 		return (0);
 	player->collectibles += player->pos->prev->value == 'C';
 	player->pos->value = '0';
@@ -35,7 +35,7 @@ int	left(t_player *player)
 */
 int	right(t_player *player)
 {
-	if (player->pos->next->value == '1')
+	if (!player->pos->next || player->pos->next->value == '1')
 		return (0);
 	player->collectibles += player->pos->next->value == 'C';
 	player->pos->value = '0';

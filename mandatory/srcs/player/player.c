@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:44:16 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:44:19 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:21:33 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
 /* move_player:
 *	Take and element and the game as parameter

@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:21:33 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:21:43 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
 /* put_image: 
 *	Takes the current character, the game and current element as parameter

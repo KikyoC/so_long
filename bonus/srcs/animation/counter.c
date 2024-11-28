@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:24:12 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:18:05 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:49:32 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 void	update_count(t_game *game)
 {

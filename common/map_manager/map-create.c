@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:48:07 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:41:26 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:04:15 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
+/* assign_element:
+*	Take an element, a row a character and the position of the element
+*	Assign good values to an element
+*/
 void	assign_element(t_element *element, t_row *row, char c, int *pos)
 {
 	element->prev = NULL;
@@ -31,6 +35,10 @@ void	assign_element(t_element *element, t_row *row, char c, int *pos)
 		element->row->map->game->exit = element;
 }
 
+/* create_row:
+*	Take the string line, the position and the map as parameter
+*	Create the row by reading s variable
+*/
 t_row	*create_row(char *s, int *pos, t_map *map)
 {
 	t_row		*res;
@@ -58,7 +66,7 @@ t_row	*create_row(char *s, int *pos, t_map *map)
 }
 
 /* create_map:
-*	Take the map's file dscriptor and the game as argument
+*	Take the map's file descriptor and the game as argument
 *	Create the map by reading the file and return it
 */
 t_map	*create_map(int fd, t_game *game)

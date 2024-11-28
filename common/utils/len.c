@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   len.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 11:24:50 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:01:54 by togauthi         ###   ########.fr       */
+/*   Created: 2024/11/15 15:50:35 by togauthi          #+#    #+#             */
+/*   Updated: 2024/11/28 13:22:28 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
-# include <so_long.h>
+#include <so_long.h>
 
-int	full(t_row *row);
-int	check_border(t_map *map);
-int	is_rect(t_map *map);
-int	check_elements(t_map *map);
+/* row_len:
+	Take a row as parameter
+	Return the len of the given row
+*/
+int	row_len(t_row *row)
+{
+	int			res;
+	t_element	*current;
 
-#endif
+	res = 0;
+	current = row->first;
+	while (current)
+	{
+		res++;
+		current = current->next;
+	}
+	return (res);
+}

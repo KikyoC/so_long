@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:23:17 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:30:59 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:22:00 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <so_long.h>
 
 /* good_name:
 *	Take the file name as parameter

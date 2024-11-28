@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:17:24 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:22:32 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:21:38 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
 /* delete_game:
 *	Take the game as argument
@@ -32,7 +32,7 @@ int	delete_game(t_game *game)
 		mlx_destroy_image(game->mlx, game->collectible);
 	if (game->wall)
 		mlx_destroy_image(game->mlx, game->wall);
-	if (game->exit)
+	if (game->exitp)
 		mlx_destroy_image(game->mlx, game->exitp);
 	if (game->mlx)
 	{

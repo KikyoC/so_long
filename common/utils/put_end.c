@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:08:52 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:50:51 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:22:33 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_longm.h>
+#include <so_long.h>
 
 /* put_row_end:
 *	Take a row and an element as parameter

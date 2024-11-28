@@ -6,11 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:18:17 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:11:10 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 void	put_image(char c, t_game *game, t_element *element)
 {
@@ -46,7 +46,7 @@ int	load_sprites(t_game *game)
 		&& game->grass && game->wall && game->patrolp);
 }
 
-int	setup_mlx(t_game *game)
+void	setup_mlx(t_game *game)
 {
 	t_element	*element;
 	t_row		*row;
@@ -66,7 +66,6 @@ int	setup_mlx(t_game *game)
 	mlx_hook(game->window, 17, 0, (void *)mlx_loop_end, game->mlx);
 	mlx_loop_hook(game->mlx, &game_loop, game);
 	mlx_loop(game->mlx);
-	return (1);
 }
 
 void	open_window(t_game *game)
