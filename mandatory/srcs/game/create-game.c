@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 13:21:43 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:19:07 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	setup_mlx(t_game *game)
 
 /* open_window:
 *	Take the game as parameter
-*	Claculate window size, load sprites and open the window's game
+*	Calculate window size, load sprites and open the window's game
 */
 void	open_window(t_game *game)
 {

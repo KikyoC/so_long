@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 14:11:10 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:19:14 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
 
+/* put_image: 
+*	Takes the current character, the game and current element as parameter
+*	Put the right image or animation accoarding to character
+*/
 void	put_image(char c, t_game *game, t_element *element)
 {
 	if (c == '1')
@@ -28,6 +32,11 @@ void	put_image(char c, t_game *game, t_element *element)
 			element->x, element->y);
 }
 
+/* load_sprites: 
+*	Takes the game as parameter
+*	Load images or animations and set them into game structure
+*	Return 1 if every images loaded
+*/
 int	load_sprites(t_game *game)
 {
 	int		width;
@@ -46,6 +55,11 @@ int	load_sprites(t_game *game)
 		&& game->grass && game->wall && game->patrolp);
 }
 
+/* setup_mlx:
+*	Take the game as parameter
+*	Setup basic things to make the game run like
+*	put images and load hooks
+*/
 void	setup_mlx(t_game *game)
 {
 	t_element	*element;
@@ -68,6 +82,10 @@ void	setup_mlx(t_game *game)
 	mlx_loop(game->mlx);
 }
 
+/* open_window:
+*	Take the game as parameter
+*	Calculate window size, load sprites and open the window's game
+*/
 void	open_window(t_game *game)
 {
 	int			x;
@@ -97,6 +115,11 @@ void	open_window(t_game *game)
 	game->window = mlx_new_window(game->mlx, x, y, "So_long");
 }
 
+/* game_create:
+*	Take the ber file, file name and a pointer to an error string
+*	Check if the map is good (if not, it return the game and fill error pointer)
+*	And launch everything 
+*/
 t_game	*create_game(int fd, char *name, char **error)
 {
 	t_game	*game;

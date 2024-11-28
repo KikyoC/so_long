@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:17:24 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 13:49:25 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:19:25 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
 
+/* delete_game:
+*	Take the game as argument
+*	Delete all game properties and the game at the end	
+*/
 int	delete_game(t_game *game)
 {
 	if (!game)
