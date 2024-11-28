@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   delete-animation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 19:40:19 by tom               #+#    #+#             */
-/*   Updated: 2024/11/28 10:13:03 by togauthi         ###   ########.fr       */
+/*   Created: 2024/11/22 14:07:06 by togauthi          #+#    #+#             */
+/*   Updated: 2024/11/28 10:18:11 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-# include <stdlib.h>
-# include <unistd.h>
-# include "../printf/ft_printf.h"
+#include <so_long.h>
 
-char	*ft_strdup_gnl(char *s);
-size_t	ft_strlen_gnl(char *s);
-char	*ft_strjoin_gnl(char *s1, char *s2);
-void	*ft_calloc_gnl(size_t count, size_t size);
-char	*ft_strchr_gnl(const char *str, int character);
-#endif
+void	*free_animation(t_game *game, t_animation *animation, int frames)
+{
+	int		i;
+
+	i = 0;
+	if (!animation)
+		return (NULL);
+	while (i <= frames)
+	{
+		if (animation->frames[i])
+			mlx_destroy_image(game->mlx, animation->frames[i]);
+		i++;
+	}
+	free(animation->frames);
+	free(animation);
+	return (NULL);
+}

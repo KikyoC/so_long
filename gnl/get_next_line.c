@@ -6,12 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 19:40:04 by tom               #+#    #+#             */
-/*   Updated: 2024/11/15 14:37:24 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 10:13:20 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "../so_long.h"
 
 ssize_t	fillbuffer(int fd, char **buffer)
 {

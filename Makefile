@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/26 17:42:03 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/28 10:48:04 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,46 +18,42 @@ GNL = gnl.a
 MLX = mlx_linux/libmlx.a
 MLX_DIR = mlx_linux/
 
-CFLAGS = -Wall -Werror -Wextra -g
-SRCS = so_long.c \
-	srcs/map_manager/map-create.c \
-	srcs/map_manager/map-delete.c \
-	srcs/map_manager/checker/map-check.c \
-	srcs/map_manager/checker/element-checker.c \
-	srcs/map_manager/checker/solvable.c \
-	srcs/map_manager/checker/move-check.c \
-	srcs/utils/put_end.c \
-	srcs/utils/last.c \
-	srcs/utils/len.c \
-	srcs/utils/movements.c \
-	srcs/utils/refresh.c \
-	srcs/game/delete-game.c \
-	srcs/game/create-game.c \
-	srcs/player/player.c \
-	srcs/animation/animation.c \
-	srcs/animation/delete-animation.c \
-	srcs/animation/counter.c \
-	srcs/animation/create-animation.c \
+CFLAGS = -Wall -Werror -Wextra -Iincludes -g
+SRCS = mandatory/so_long.c \
+	mandatory/srcs/map_manager/map-create.c \
+	mandatory/srcs/map_manager/map-delete.c \
+	mandatory/srcs/map_manager/checker/map-check.c \
+	mandatory/srcs/map_manager/checker/element-checker.c \
+	mandatory/srcs/map_manager/checker/solvable.c \
+	mandatory/srcs/map_manager/checker/move-check.c \
+	mandatory/srcs/utils/put_end.c \
+	mandatory/srcs/utils/last.c \
+	mandatory/srcs/utils/len.c \
+	mandatory/srcs/utils/movements.c \
+	mandatory/srcs/utils/refresh.c \
+	mandatory/srcs/game/delete-game.c \
+	mandatory/srcs/game/create-game.c \
+	mandatory/srcs/player/player.c \
 
-SRCS_BONUS = so_long_bonus.c \
-	srcs/map_manager/map-create.c \
-	srcs/map_manager/map-delete.c \
-	srcs/map_manager/checker/map-check.c \
-	srcs/map_manager/checker/element-checker.c \
-	srcs/map_manager/checker/solvable.c \
-	srcs/map_manager/checker/move-check.c \
-	srcs/utils/put_end.c \
-	srcs/utils/last.c \
-	srcs/utils/len.c \
-	srcs/utils/movements.c \
-	srcs/utils/refresh.c \
-	srcs/game/delete-game.c \
-	srcs/game/create-game.c \
-	srcs/player/player.c \
-	srcs/animation/animation.c \
-	srcs/animation/delete-animation.c \
-	srcs/animation/counter.c \
-	srcs/animation/create-animation.c \
+SRCS_BONUS = bonus/so_long.c \
+	bonus/srcs/map_manager/map-create.c \
+	bonus/srcs/map_manager/map-delete.c \
+	bonus/srcs/map_manager/checker/map-check.c \
+	bonus/srcs/map_manager/checker/element-checker.c \
+	bonus/srcs/map_manager/checker/solvable.c \
+	bonus/srcs/map_manager/checker/move-check.c \
+	bonus/srcs/utils/put_end.c \
+	bonus/srcs/utils/last.c \
+	bonus/srcs/utils/len.c \
+	bonus/srcs/utils/movements.c \
+	bonus/srcs/utils/refresh.c \
+	bonus/srcs/game/delete-game.c \
+	bonus/srcs/game/create-game.c \
+	bonus/srcs/player/player.c \
+	bonus/srcs/animation/animation.c \
+	bonus/srcs/animation/delete-animation.c \
+	bonus/srcs/animation/counter.c \
+	bonus/srcs/animation/create-animation.c \
 
 GREEN = \e[0;32m
 WHITE = \e[0;37m
@@ -67,14 +63,21 @@ YELLOW = \e[0;33m
 OBJS = $(addprefix objs/, $(SRCS:.c=.o))
 OBJS_BONUS = $(addprefix objs/, $(SRCS_BONUS:.c=.o))
 
-OBJS_DIR = objs/ \
-	objs/srcs/ \
-	objs/srcs/map_manager/ \
-	objs/srcs/map_manager/checker/ \
-	objs/srcs/utils/ \
-	objs/srcs/game \
-	objs/srcs/player \
-	objs/srcs/animation \
+OBJS_DIR = objs/bonus \
+	objs/bonus/srcs/ \
+	objs/bonus/srcs/map_manager/ \
+	objs/bonus/srcs/map_manager/checker/ \
+	objs/bonus/srcs/utils/ \
+	objs/bonus/srcs/game \
+	objs/bonus/srcs/player \
+	objs/bonus/srcs/animation \
+	objs/mandatory \
+	objs/mandatory/srcs/ \
+	objs/mandatory/srcs/map_manager/ \
+	objs/mandatory/srcs/map_manager/checker/ \
+	objs/mandatory/srcs/utils/ \
+	objs/mandatory/srcs/game \
+	objs/mandatory/srcs/player \
 
 all: $(MLX_DIR) $(OBJS_DIR) $(NAME)
 
@@ -141,8 +144,9 @@ clean:
 install: $(MLX_DIR) $(MLX)
 
 fclean: clean
-	@echo "$(YELLOW)Clearing result...$(WHITE)[$(GREEN)1$(WHITE)/$(AQUA)1$(WHITE)]"
+	@echo "$(YELLOW)Clearing result...$(WHITE)[$(GREEN)1$(WHITE)/$(AQUA)2$(WHITE)]"
 	@rm -f $(NAME)
+	@echo "$(YELLOW)Clearing mlx...$(WHITE)[$(GREEN)2$(WHITE)/$(AQUA)2$(WHITE)]"
 	@rm -rf mlx_linux
 	@echo "$(GREEN)Done."
 
