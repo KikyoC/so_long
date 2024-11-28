@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:48:07 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:23:32 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:41:26 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ t_row	*create_row(char *s, int *pos, t_map *map)
 	return (res);
 }
 
+/* create_map:
+*	Take the map's file dscriptor and the game as argument
+*	Create the map by reading the file and return it
+*/
 t_map	*create_map(int fd, t_game *game)
 {
 	char		*s;

@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:08:52 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:23:12 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:50:51 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_longm.h>
 
+/* put_row_end:
+*	Take a row and an element as parameter
+*	Put the element at the end of the row
+*/
 void	put_row_end(t_row *row, t_element *element)
 {
 	t_element	*current;
@@ -35,6 +39,10 @@ void	put_row_end(t_row *row, t_element *element)
 	}
 }
 
+/* put_map_end:
+*	Take the map and an element as parameter
+*	Put the element at the end of the map
+*/
 void	put_map_end(t_map *map, t_row *element)
 {
 	t_row	*current;

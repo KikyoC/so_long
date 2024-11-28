@@ -6,12 +6,17 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:44:16 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:42:57 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:44:19 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_longm.h>
 
+/* move_player:
+*	Take and element and the game as parameter
+*	Put grass (or exit if element is exit) image at the elemnt position
+*	And put the player image at player position
+*/
 void	move_player(t_element *old_pos, t_game *game)
 {
 	if (old_pos == game->exit)
@@ -24,6 +29,10 @@ void	move_player(t_element *old_pos, t_game *game)
 		game->player->pos->x, game->player->pos->y);
 }
 
+/* init:
+*	Take the game as parameter
+*	Set default player value to 0 
+*/
 void	init(t_game *game)
 {
 	game->player->collectibles = 0;

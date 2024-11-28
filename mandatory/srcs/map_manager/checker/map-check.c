@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:23:17 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/26 15:12:40 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:30:59 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
+/* good_name:
+*	Take the file name as parameter
+*	Return 1 if the name end with .ber
+*/
 int	good_name(char *name)
 {
 	int	len;
@@ -24,6 +28,10 @@ int	good_name(char *name)
 		&& name[len - 2] == 'b' && name[len - 3] == '.');
 }
 
+/* check:
+*	Take the map, the player and file name as parameter
+*	Return and error if there is a problem in the map
+*/
 char	*check(t_map *map, t_player *player, char *name)
 {
 	if (!is_rect(map))

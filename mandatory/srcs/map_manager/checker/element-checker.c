@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:18:55 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:19:13 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:29:06 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
+/* full:
+*	Take a row as parameter
+*	Check if value of each element of the row is '1'
+*/
 int	full(t_row *row)
 {
 	t_element	*current;
@@ -26,6 +30,10 @@ int	full(t_row *row)
 	return (1);
 }
 
+/* check_border:
+*	Take the map as parameter
+*	Check if 1st and last line is composed of 1 and each line start and end by '1'
+*/
 int	check_border(t_map *map)
 {
 	t_row		*row;
@@ -43,6 +51,10 @@ int	check_border(t_map *map)
 	return (1);
 }
 
+/* is_rect:
+*	Take the map as parameter
+*	Check if the map is rectangular
+*/
 int	is_rect(t_map *map)
 {
 	int		len;
@@ -59,6 +71,12 @@ int	is_rect(t_map *map)
 	return (1);
 }
 
+/* check_elements:
+*	Takes 3 pointers to an int and the element
+*	Check if element is P,E,C,1 or 0 and if is a speacial character (P,E or C)
+*	Increment the good int pointer
+*	Return 1 if element is good
+*/
 int	check_element(int *start, int *end, int *collectibles, t_element *element)
 {
 	if (element->value == 'P')
@@ -72,6 +90,10 @@ int	check_element(int *start, int *end, int *collectibles, t_element *element)
 	return (1);
 }
 
+/* check_element
+*	Takes the map as parameter
+*	Check all element and return 1 if they are good
+*/
 int	check_elements(t_map *map)
 {
 	t_row		*row;

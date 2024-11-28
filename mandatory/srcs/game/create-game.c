@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:01:24 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:21:33 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_longm.h>
 
+/* put_image: 
+*	Takes the current character, the game and current element as parameter
+*	Put the right image accoarding to character
+*/
 void	put_image(char c, t_game *game, t_element *element)
 {
 	if (c == '1')
@@ -31,6 +35,11 @@ void	put_image(char c, t_game *game, t_element *element)
 			element->x, element->y);
 }
 
+/* load_sprites: 
+*	Takes the game as parameter
+*	Load images and set them into game structure
+*	Return 1 if every images loaded
+*/
 int	load_sprites(t_game *game)
 {
 	int		width;
@@ -51,7 +60,12 @@ int	load_sprites(t_game *game)
 		&& game->grass && game->wall);
 }
 
-int	setup_mlx(t_game *game)
+/* setup_mlx:
+*	Take the game as parameter
+*	Setup basic things to make the game run like
+*	put images and load hooks
+*/
+void	setup_mlx(t_game *game)
 {
 	t_element	*element;
 	t_row		*row;
@@ -71,9 +85,12 @@ int	setup_mlx(t_game *game)
 	mlx_hook(game->window, 17, 0, (void *)mlx_loop_end, game->mlx);
 	mlx_loop_hook(game->mlx, &game_loop, game);
 	mlx_loop(game->mlx);
-	return (1);
 }
 
+/* open_window:
+*	Take the game as parameter
+*	Claculate window size, load sprites and open the window's game
+*/
 void	open_window(t_game *game)
 {
 	int			x;
@@ -103,6 +120,11 @@ void	open_window(t_game *game)
 	game->window = mlx_new_window(game->mlx, x, y, "So_long");
 }
 
+/* game_create:
+*	Take the ber file, file name and a pointer to an error string
+*	Check if the map is good (if not, it return the game and fill error pointer)
+*	And launch everything 
+*/
 t_game	*create_game(int fd, char *name, char **error)
 {
 	t_game	*game;

@@ -6,25 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:05:09 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:52:07 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_longm.h>
 
-void	print_row(t_row *row)
-{
-	t_element	*current;
-
-	current = row->first;
-	while (current)
-	{
-		ft_printf("%c ", current->value);
-		current = current->next;
-	}
-	ft_printf("\n");
-}
-
+/* key_press:
+	Takes keycode and general game as argument
+	Move the player if keycode is w,a,s or d and close if escape
+*/
 int	key_press(int keycode, t_game *game)
 {
 	t_element	*old_pos;
@@ -50,6 +41,10 @@ int	key_press(int keycode, t_game *game)
 	return (1);
 }
 
+/* game_loop:
+	Takes the game as argument
+	Check each loop if player has finished the game
+*/
 int	game_loop(t_game *game)
 {
 	if (game->player->pos->exit && game->map->collectibles
@@ -57,7 +52,9 @@ int	game_loop(t_game *game)
 		mlx_loop_end(game->mlx);
 	return (1);
 }
-
+/* main:
+	Main function that makes basic checks and launch the game
+*/
 int	main(int argc, char **argv)
 {
 	int			fd;

@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:56:12 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:23:34 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:42:14 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_longm.h>
 
+/* free_row:
+*	Take a row as parameter
+*	Free the row and return NULL
+*/
 void	*free_row(t_row	*row)
 {
 	t_element	*current;
@@ -28,6 +32,10 @@ void	*free_row(t_row	*row)
 	return (NULL);
 }
 
+/* free_row:
+*	Take the map as parameter
+*	Free the map and return NULL
+*/
 void	*free_map(t_map *map)
 {
 	t_row	*current;

@@ -6,24 +6,11 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:04:21 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:05:52 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-
-void	print_row(t_row *row)
-{
-	t_element	*current;
-
-	current = row->first;
-	while (current)
-	{
-		ft_printf("%c ", current->value);
-		current = current->next;
-	}
-	ft_printf("\n");
-}
 
 int	key_press(int keycode, t_game *game)
 {

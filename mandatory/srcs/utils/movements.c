@@ -6,12 +6,17 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:27:44 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:23:15 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:48:58 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_longm.h>
 
+/* left:
+*	Take the player as parameter
+*	Try to go left. If he can the function return 1
+*	Check if it's a collectible and add it to count
+*/
 int	left(t_player *player)
 {
 	if (player->pos->prev->value == '1')
@@ -23,6 +28,11 @@ int	left(t_player *player)
 	return (1);
 }
 
+/* right:
+*	Take the player as parameter
+*	Try to go right. If he can the function return 1
+*	Check if it's a collectible and add it to count
+*/
 int	right(t_player *player)
 {
 	if (player->pos->next->value == '1')
@@ -34,6 +44,11 @@ int	right(t_player *player)
 	return (1);
 }
 
+/* up:
+*	Take the player as parameter
+*	Try to go up. If he can the function return 1
+*	Check if it's a collectible and add it to count
+*/
 int	up(t_player *player)
 {
 	int			element_rank;
@@ -63,6 +78,11 @@ int	up(t_player *player)
 	return (1);
 }
 
+/* down:
+*	Take the player as parameter
+*	Try to go down. If he can the function return 1
+*	Check if it's a collectible and add it to count
+*/
 int	down(t_player *player)
 {
 	int			element_rank;
