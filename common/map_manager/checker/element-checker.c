@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:18:55 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 13:21:57 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:14:09 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	full(t_row *row)
 
 /* check_border:
 *	Take the map as parameter
-*	Check if 1st and last line is composed of 1 and each line start and end by '1'
+*	Check if 1st and last line is composed of 1 and each line start and end by 1
 */
 int	check_border(t_map *map)
 {

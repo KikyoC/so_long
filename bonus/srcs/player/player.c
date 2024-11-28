@@ -6,27 +6,25 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:44:16 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 13:21:33 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:28:29 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 /* move_player:
 *	Take and element and the game as parameter
-*	Put grass (or exit if element is exit) image at the elemnt position
-*	And put the player image at player position
+*	Put grass (or exit if element is exit) image at the element position
+*	And put the player animation at player position
 */
 void	move_player(t_element *old_pos, t_game *game)
 {
 	if (old_pos == game->exit)
-		mlx_put_image_to_window(game->mlx, game->window, game->exitp,
-			game->exit->x, game->exit->y);
+		animate_portal(game);
 	else
 		mlx_put_image_to_window(game->mlx, game->window, game->grass,
 			old_pos->x, old_pos->y);
-	mlx_put_image_to_window(game->mlx, game->window, game->playerp,
-		game->player->pos->x, game->player->pos->y);
+	animate_player(game);
 }
 
 /* init:

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 12:00:15 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:59:32 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "../libft/libft.h"
 # include "../printf/ft_printf.h"
 # include <fcntl.h>
+# include <sys/time.h>
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 # include "X11/X.h"
@@ -76,7 +77,9 @@ typedef struct s_game
 
 typedef struct s_animation
 {
-	void		**frames;
+	void	**frames;
+	int		current_frame;
+	time_t	last_print;
 }	t_animation;
 
 void		*free_map(t_map *map);

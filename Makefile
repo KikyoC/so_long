@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/28 14:20:38 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/28 14:29:46 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ CFLAGS = -Wall -Werror -Wextra -Iincludes -g
 SRCS = mandatory/so_long.c \
 	mandatory/srcs/game/delete-game.c \
 	mandatory/srcs/game/create-game.c \
+	mandatory/srcs/player/player.c \
 
 COMMON_SRCS = common/map_manager/checker/element-checker.c \
 	common/map_manager/checker/map-check.c \
@@ -29,7 +30,6 @@ COMMON_SRCS = common/map_manager/checker/element-checker.c \
 	common/map_manager/checker/solvable.c \
 	common/map_manager/map-delete.c \
 	common/map_manager/map-create.c \
-	common/player/player.c
 	common/utils/last.c \
 	common/utils/len.c \
 	common/utils/movements.c \
@@ -38,7 +38,8 @@ COMMON_SRCS = common/map_manager/checker/element-checker.c \
 
 SRCS_BONUS = bonus/so_long.c \
 	bonus/srcs/game/delete-game.c \
-	bonus/srcs/game/create-game.c \	
+	bonus/srcs/game/create-game.c \
+	bonus/srcs/player/player.c \
 	bonus/srcs/animation/animation.c \
 	bonus/srcs/animation/delete-animation.c \
 	bonus/srcs/animation/counter.c \
@@ -58,10 +59,10 @@ OBJS_DIR = objs/bonus \
 	objs/bonus/srcs/map_manager/ \
 	objs/bonus/srcs/map_manager/checker/ \
 	objs/bonus/srcs/utils/ \
-	objs/bonus/srcs/game \
-	objs/bonus/srcs/player \
-	objs/bonus/srcs/animation \
-	objs/mandatory \
+	objs/bonus/srcs/game/ \
+	objs/bonus/srcs/player/ \
+	objs/bonus/srcs/animation/ \
+	objs/mandatory/ \
 	objs/mandatory/srcs/ \
 	objs/mandatory/srcs/map_manager/ \
 	objs/mandatory/srcs/map_manager/checker/ \

@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:32:10 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 13:49:36 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:06:21 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_animation	*create_player_animation(t_game *game)
 	if (!res->frames[0] || !res->frames[1] || !res->frames[2]
 		|| !res->frames[3] || !res->frames[4])
 		return (free_animation(game, res, 5));
+	res->current_frame = 0;
 	return (res);
 }
 

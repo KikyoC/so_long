@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 14:19:14 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:24:47 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	setup_mlx(t_game *game)
 		row = row->next;
 	}
 	mlx_key_hook(game->window, &key_press, game);
-	mlx_hook(game->window, 17, 0, (void *)mlx_loop_end, game->mlx);
+	mlx_hook(game->window, 17, 0, mlx_loop_end, game->mlx);
 	mlx_loop_hook(game->mlx, &game_loop, game);
 	mlx_loop(game->mlx);
 }

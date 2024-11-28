@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 13:21:30 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:10:39 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	game_loop(t_game *game)
 		mlx_loop_end(game->mlx);
 	return (1);
 }
+
 /* main:
 	Main function that makes basic checks and launch the game
 */
