@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 10:55:02 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:04:21 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int	key_press(int keycode, t_game *game)
 		moved += left(game->player);
 	else if (keycode == XK_s)
 		moved += down(game->player);
-	move_player(old_pos, game);
+	if (moved)
+		move_player(old_pos, game);
 	game->player->movements += moved;
 	if (moved)
 		update_count(game);
