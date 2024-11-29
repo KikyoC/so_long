@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/29 09:42:16 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:23:30 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	load_sprites(t_game *game)
 	int		width;
 	int		height;
 
-	game->fps = 0;
 	game->collectible = mlx_xpm_file_to_image(game->mlx,
 			"textures/coin/coin1.xpm", &width, &height);
 	game->exitp = mlx_xpm_file_to_image(game->mlx,

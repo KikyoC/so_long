@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/29 10:15:15 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/29 11:15:33 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -133,7 +133,7 @@ clean:
 	@echo "$(YELLOW)Clearing mlx... $(WHITE)[$(GREEN)4$(WHITE)/$(AQUA)5$(WHITE)]"
 	@if [ -f "mlx_linux/Makefile" ]; then make --no-print-directory -C mlx_linux clean; fi;
 	@echo "$(YELLOW)Clearing objects... $(WHITE)[$(GREEN)5$(WHITE)/$(AQUA)5$(WHITE)]"
-	@rm -rf $(OBJS_DIR)
+	@rm -rf objs
 	@echo "$(GREEN)Done."
 
 install: $(MLX_DIR) $(MLX)

@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 10:21:54 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/29 10:07:33 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:23:04 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ typedef struct s_game
 	void					*grass;
 	void					*playerp;
 	void					*wall;
-	int						fps;
 }	t_game;
 
 void		*free_map(t_map *map);
