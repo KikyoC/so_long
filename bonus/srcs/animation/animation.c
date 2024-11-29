@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:50:36 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 17:13:23 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 09:09:27 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
 
+/* animate_player
+*	Take the game as argument
+*	
+*/
 void	animate_player(t_game *game)
 {
 	t_element		*pos;
