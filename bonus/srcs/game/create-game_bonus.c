@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create-game.c                                      :+:      :+:    :+:   */
+/*   create-game_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:07:22 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/29 09:50:58 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:12:06 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	load_sprites(t_game *game)
 	int		width;
 	int		height;
 
-	game->fps = 0;
 	game->collectible = create_coin_animation(game);
 	game->exitp = create_exit_animation(game);
 	game->grass = mlx_xpm_file_to_image(game->mlx, "textures/grass.xpm",

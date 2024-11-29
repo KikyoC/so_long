@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/29 09:44:50 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:11:37 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,6 @@ int	game_loop(t_game *game)
 	if (game->player->pos->exit && game->map->collectibles
 		== game->player->collectibles)
 		mlx_loop_end(game->mlx);
-	if (game->fps >= 10000)
-		game->fps = -1;
-	game->fps ++;
 	animate_player(game);
 	animate_collectibles(game);
 	if (game->player->pos != game->exit)
