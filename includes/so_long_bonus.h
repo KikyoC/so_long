@@ -6,12 +6,12 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:40:37 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/29 09:50:46 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 09:59:45 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include "../libft/libft.h"
 # include "../printf/ft_printf.h"
 # include <fcntl.h>

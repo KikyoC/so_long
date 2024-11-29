@@ -6,11 +6,12 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:29:23 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 14:00:06 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:09:10 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
+
 /* solve:
 *	Take the player as parameter
 *	Go on each pos where the player can go

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_longm.h                                         :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 10:21:54 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 12:08:19 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:07:33 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONGM_H
-# define SO_LONGM_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 # include "../libft/libft.h"
 # include "../printf/ft_printf.h"
 # include <fcntl.h>

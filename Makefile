@@ -6,7 +6,7 @@
 #    By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 11:34:01 by togauthi          #+#    #+#              #
-#    Updated: 2024/11/28 14:29:46 by togauthi         ###   ########.fr        #
+#    Updated: 2024/11/29 10:15:15 by togauthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,14 +36,14 @@ COMMON_SRCS = common/map_manager/checker/element-checker.c \
 	common/utils/put_end.c \
 	common/utils/refresh.c \
 
-SRCS_BONUS = bonus/so_long.c \
-	bonus/srcs/game/delete-game.c \
-	bonus/srcs/game/create-game.c \
-	bonus/srcs/player/player.c \
-	bonus/srcs/animation/animation.c \
-	bonus/srcs/animation/delete-animation.c \
-	bonus/srcs/animation/counter.c \
-	bonus/srcs/animation/create-animation.c \
+SRCS_BONUS = bonus/so_long_bonus.c \
+	bonus/srcs/game/delete-game_bonus.c \
+	bonus/srcs/game/create-game_bonus.c \
+	bonus/srcs/player/player_bonus.c \
+	bonus/srcs/animation/animation_bonus.c \
+	bonus/srcs/animation/delete-animation_bonus.c \
+	bonus/srcs/animation/counter_bonus.c \
+	bonus/srcs/animation/create-animation_bonus.c \
 
 GREEN = \e[0;32m
 WHITE = \e[0;37m
