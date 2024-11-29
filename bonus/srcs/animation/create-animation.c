@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:32:10 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 15:06:21 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 09:52:32 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
 
+/* create_player_animation
+*	Take the game as argument
+*	Return player animation
+*/
 t_animation	*create_player_animation(t_game *game)
 {
 	t_animation	*res;
@@ -41,6 +45,10 @@ t_animation	*create_player_animation(t_game *game)
 	return (res);
 }
 
+/* fill_exit_animation
+*	Take an animation and the game as argument
+*	Return fill animation allocation with images
+*/
 void	fill_exit_animation(t_animation *animation, t_game *game)
 {
 	int		width;
@@ -66,6 +74,10 @@ void	fill_exit_animation(t_animation *animation, t_game *game)
 			"textures/exit/exit9.xpm", &width, &height);
 }
 
+/* create_exit_animation
+*	Take the game as argument
+*	Return exit animation
+*/
 t_animation	*create_exit_animation(t_game *game)
 {
 	t_animation	*res;
@@ -84,6 +96,10 @@ t_animation	*create_exit_animation(t_game *game)
 	return (res);
 }
 
+/* create_coin_animation
+*	Take the game as argument
+*	Return the coin animation
+*/
 t_animation	*create_coin_animation(t_game *game)
 {
 	t_animation	*res;
@@ -110,26 +126,5 @@ t_animation	*create_coin_animation(t_game *game)
 		|| !res->frames[4] || !res->frames[5] || !res->frames[6]
 		|| !res->frames[7] || !res->frames[8])
 		return (free_animation(game, res, 9));
-	return (res);
-}
-
-t_animation	*create_patrol_animation(t_game *game)
-{
-	t_animation	*res;
-	void		*(*f)(void *mlx, char *path, int *w, int *h);
-	int			i;
-
-	f = mlx_xpm_file_to_image;
-	res = ft_calloc(1, sizeof(t_animation));
-	if (!res)
-		return (NULL);
-	res->frames = ft_calloc(4, sizeof(void *));
-	if (!res->frames)
-		return (free_animation(game, res, 0));
-	res->frames[0] = f(game->mlx, "textures/patrol/patrol1.xpm", &i, &i);
-	res->frames[1] = f(game->mlx, "textures/patrol/patrol2.xpm", &i, &i);
-	res->frames[2] = f(game->mlx, "textures/patrol/patrol3.xpm", &i, &i);
-	if (!res->frames[0] || !res->frames[1] || !res->frames[2])
-		return (free_animation(game, res, 3));
 	return (res);
 }

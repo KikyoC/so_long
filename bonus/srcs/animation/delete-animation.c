@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:07:06 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 13:49:38 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 09:55:15 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
 
+/* free_animation
+*	Take the name, the animation and the number of frames as argument
+*	Free images of an animation
+*/
 void	*free_animation(t_game *game, t_animation *animation, int frames)
 {
 	int		i;

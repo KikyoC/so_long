@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:50:36 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/29 09:09:27 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 09:46:26 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* animate_player
 *	Take the game as argument
-*	
+*	Make animatiom for the player
 */
 void	animate_player(t_game *game)
 {
@@ -36,6 +36,10 @@ void	animate_player(t_game *game)
 		game->playerp->frames[game->playerp->current_frame], pos->x, pos->y);
 }
 
+/* animate_portal
+*	Take the game as argument
+*	Make animatiom for the exit
+*/
 void	animate_portal(t_game *game)
 {
 	t_element		*pos;
@@ -56,6 +60,10 @@ void	animate_portal(t_game *game)
 		game->exitp->frames[game->exitp->current_frame], pos->x, pos->y);
 }
 
+/* animate_collectible
+*	Take the game and an element as argument
+*	Make animatiom for the element provided
+*/
 void	animate_collectible(t_game *game, t_element *e)
 {
 	struct timeval	current_time;
@@ -75,6 +83,10 @@ void	animate_collectible(t_game *game, t_element *e)
 		e->x, e->y);
 }
 
+/* animate_collectibles
+*	Take the game as argument
+*	Make animatiom for all coins
+*/
 void	animate_collectibles(t_game *game)
 {
 	t_row		*row;

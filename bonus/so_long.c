@@ -6,12 +6,16 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:36:47 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/29 09:34:05 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/11/29 09:44:50 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
 
+/* key_press:
+	Takes keycode and general game as argument
+	Move the player if keycode is w,a,s or d and close if escape
+*/
 int	key_press(int keycode, t_game *game)
 {
 	t_element	*old_pos;
@@ -37,6 +41,10 @@ int	key_press(int keycode, t_game *game)
 	return (1);
 }
 
+/* game_loop:
+	Takes the game as argument
+	Check each loop if player has finished the game
+*/
 int	game_loop(t_game *game)
 {
 	if (game->player->pos->exit && game->map->collectibles
@@ -52,6 +60,9 @@ int	game_loop(t_game *game)
 	return (1);
 }
 
+/* main:
+	Main function that makes basic checks and launch the game
+*/
 int	main(int argc, char **argv)
 {
 	int			fd;
