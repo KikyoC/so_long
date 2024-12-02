@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:18:55 by togauthi          #+#    #+#             */
-/*   Updated: 2024/11/28 17:14:09 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/12/02 10:50:36 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	is_rect(t_map *map)
 	int		len;
 	t_row	*current;
 
+	if (!map->first)
+		return (0);
 	len = row_len(map->first);
 	current = map->first;
 	while (current)

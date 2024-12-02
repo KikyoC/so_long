@@ -6,7 +6,7 @@
 /*   By: togauthi <togauthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:48:07 by togauthi          #+#    #+#             */
-/*   Updated: 2024/12/02 10:30:37 by togauthi         ###   ########.fr       */
+/*   Updated: 2024/12/02 10:48:25 by togauthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ t_map	*create_map(int fd, t_game *game)
 	t_row		*row;
 	int			pos[2];
 
-	s = get_next_line(fd);
-	if (!s)
-		return (NULL);
 	res = ft_calloc(1, sizeof(t_map));
 	if (!res)
 		return (NULL);
+	s = get_next_line(fd);
+	if (!s)
+		return (res);
 	res->game = game;
 	res->collectibles = 0;
 	pos[1] = 0;
